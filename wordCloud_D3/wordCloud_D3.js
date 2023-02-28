@@ -1,12 +1,32 @@
-var myWords = [];
+// var myWords = [];
 
 //read csv using d3.v7
-d3.csv("word_count_10.csv").then(function(data) {
-    data.forEach(function(d) {
-        myWords.push({word: d.word, size: d.count});
+// d3.csv("word_count_10.csv").then(function(data) {
+d3.json("word_count.json").then(function(data) {
+
+    // var myWords = [];
+    // data.forEach(function(d) {
+    //     myWords.push({word: d.word, size: d.count.toString()});
+    // });
+    // console.log(typeof(myWords[0].size))
+    // var myWords = data.map(function(d) {
+    //     return { word: d.word, size: +d.count };
+    // });
+    // console.log(myWords)
+    // myWords = [{word: "Running", size: "10"}, {word: "Surfing", size: "200"}, {word: "Climbing", size: "50"}, {word: "Kiting", size: "30"}, {word: "Sailing", size: "20"}, {word: "Snowboarding", size: "60"}, {word: "12`", size: "60"} ];
+    // console.log datatype of size
+
+    var myWords = data.map(function(d) {
+        return { word: d.word, size: +(d.size.toString()) };
+      });
+    // change size to string
+    myWords.forEach(function(d) {
+        d.size = d.size.toString();
     });
+
+console.log(typeof(myWords[0].size))
+
     console.log(myWords)
-    myWords = [{word: "Running", size: "10"}, {word: "Surfing", size: "20"}, {word: "Climbing", size: "50"}, {word: "Kiting", size: "30"}, {word: "Sailing", size: "20"}, {word: "Snowboarding", size: "60"} ];
     var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 450 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
@@ -50,4 +70,8 @@ d3.csv("word_count_10.csv").then(function(data) {
     }
 });
 
+// console.log(myWords)
 
+
+// load myWords from word_count.json
+// d3.json("word_count.json").then(function(data) {
