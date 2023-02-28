@@ -3,7 +3,7 @@ var myWords = [];
 //read csv using d3.v7
 d3.csv("word_count.csv").then(function(data) {
     data.forEach(function(d) {
-        myWords.push({word: d.word, size: d.size});
+        myWords.push({word: d.word, size: d.count});
     });
     console.log(myWords)
 });
