@@ -6,6 +6,7 @@ d3.csv("word_count_10.csv").then(function(data) {
         myWords.push({word: d.word, size: d.count});
     });
     console.log(myWords)
+    myWords = [{word: "Running", size: "10"}, {word: "Surfing", size: "20"}, {word: "Climbing", size: "50"}, {word: "Kiting", size: "30"}, {word: "Sailing", size: "20"}, {word: "Snowboarding", size: "60"} ];
     var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 450 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
