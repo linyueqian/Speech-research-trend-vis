@@ -1,11 +1,15 @@
 [
   {
+    "name": "speech",
+    "value": "84694"
+  },
+  {
     "name": "language",
-    "value": "18614"
+    "value": "18599"
   },
   {
     "name": "data",
-    "value": "17319"
+    "value": "17318"
   },
   {
     "name": "results",
@@ -29,7 +33,7 @@
   },
   {
     "name": "recognition",
-    "value": "14120"
+    "value": "14118"
   },
   {
     "name": "used",
@@ -61,7 +65,7 @@
   },
   {
     "name": "based",
-    "value": "9528"
+    "value": "9527"
   },
   {
     "name": "also",
@@ -133,7 +137,7 @@
   },
   {
     "name": "speaker",
-    "value": "6305"
+    "value": "6304"
   },
   {
     "name": "one",
@@ -149,7 +153,7 @@
   },
   {
     "name": "voice",
-    "value": "6111"
+    "value": "6109"
   },
   {
     "name": "communication",
@@ -157,7 +161,7 @@
   },
   {
     "name": "work",
-    "value": "5874"
+    "value": "5873"
   },
   {
     "name": "systems",
@@ -217,7 +221,7 @@
   },
   {
     "name": "english",
-    "value": "4925"
+    "value": "4924"
   },
   {
     "name": "first",
@@ -229,7 +233,7 @@
   },
   {
     "name": "deep",
-    "value": "4759"
+    "value": "4698"
   },
   {
     "name": "audio",
@@ -253,7 +257,7 @@
   },
   {
     "name": "hate",
-    "value": "4557"
+    "value": "4548"
   },
   {
     "name": "participants",
@@ -281,7 +285,7 @@
   },
   {
     "name": "dataset",
-    "value": "4215"
+    "value": "4214"
   },
   {
     "name": "significant",
@@ -293,7 +297,7 @@
   },
   {
     "name": "detection",
-    "value": "4066"
+    "value": "4064"
   },
   {
     "name": "group",
@@ -317,7 +321,7 @@
   },
   {
     "name": "rate",
-    "value": "3847"
+    "value": "3846"
   },
   {
     "name": "improve",
@@ -373,7 +377,7 @@
   },
   {
     "name": "clinical",
-    "value": "3547"
+    "value": "3545"
   },
   {
     "name": "loss",
@@ -381,7 +385,7 @@
   },
   {
     "name": "2",
-    "value": "3520"
+    "value": "3519"
   },
   {
     "name": "experiments",
@@ -389,14 +393,10 @@
   },
   {
     "name": "1",
-    "value": "3497"
+    "value": "3494"
   },
   {
     "name": "including",
     "value": "3490"
-  },
-  {
-    "name": "years",
-    "value": "3456"
   }
 ]
