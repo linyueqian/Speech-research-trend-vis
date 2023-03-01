@@ -5,7 +5,7 @@
   },
   {
     "name": "language",
-    "value": "18601"
+    "value": "18602"
   },
   {
     "name": "data",
@@ -24,20 +24,12 @@
     "value": "16131"
   },
   {
-    "name": "can",
-    "value": "14882"
-  },
-  {
     "name": "using",
     "value": "14864"
   },
   {
     "name": "recognition",
     "value": "14118"
-  },
-  {
-    "name": "%",
-    "value": "13363"
   },
   {
     "name": "used",
@@ -96,10 +88,6 @@
     "value": "8798"
   },
   {
-    "name": "two",
-    "value": "8464"
-  },
-  {
     "name": "children",
     "value": "8424"
   },
@@ -142,10 +130,6 @@
   {
     "name": "speaker",
     "value": "6306"
-  },
-  {
-    "name": "one",
-    "value": "6200"
   },
   {
     "name": "network",
@@ -201,7 +185,7 @@
   },
   {
     "name": "time",
-    "value": "5176"
+    "value": "5177"
   },
   {
     "name": "compared",
@@ -216,16 +200,16 @@
     "value": "4963"
   },
   {
-    "name": "quality",
-    "value": "4935"
-  },
-  {
     "name": "propose",
     "value": "4935"
   },
   {
+    "name": "quality",
+    "value": "4935"
+  },
+  {
     "name": "english",
-    "value": "4925"
+    "value": "4926"
   },
   {
     "name": "first",
@@ -253,7 +237,7 @@
   },
   {
     "name": "word",
-    "value": "4574"
+    "value": "4575"
   },
   {
     "name": "tasks",
@@ -276,10 +260,6 @@
     "value": "4474"
   },
   {
-    "name": "three",
-    "value": "4423"
-  },
-  {
     "name": "well",
     "value": "4387"
   },
@@ -297,7 +277,7 @@
   },
   {
     "name": "test",
-    "value": "4138"
+    "value": "4139"
   },
   {
     "name": "detection",
@@ -334,10 +314,6 @@
   {
     "name": "perception",
     "value": "3794"
-  },
-  {
-    "name": "=",
-    "value": "3714"
   },
   {
     "name": "found",
@@ -385,7 +361,7 @@
   },
   {
     "name": "loss",
-    "value": "3533"
+    "value": "3534"
   },
   {
     "name": "experiments",
@@ -398,5 +374,29 @@
   {
     "name": "years",
     "value": "3461"
+  },
+  {
+    "name": "process",
+    "value": "3449"
+  },
+  {
+    "name": "target",
+    "value": "3401"
+  },
+  {
+    "name": "age",
+    "value": "3338"
+  },
+  {
+    "name": "content",
+    "value": "3310"
+  },
+  {
+    "name": "significantly",
+    "value": "3310"
+  },
+  {
+    "name": "corpus",
+    "value": "3274"
   }
 ]
