@@ -14,7 +14,7 @@
   },
   "legend": {
     "edgeLabel": "Co-author",
-    "colorLabel": "Modularity",
+    "colorLabel": "Modularity Class",
     "nodeLabel": "Author"
   },
   "features": {
@@ -29,6 +29,7 @@
   "sigma": {
     "drawingProperties": {
       "defaultEdgeType": "curve",
+      "defaultEdgeColor": "#ccc",
       "defaultHoverLabelBGColor": "#002147",
       "defaultLabelBGColor": "#ddd",
       "activeFontStyle": "bold",
@@ -37,7 +38,8 @@
       "defaultLabelHoverColor": "#fff",
       "fontStyle": "bold",
       "hoverFontStyle": "bold",
-      "defaultLabelSize": 14
+      "defaultLabelSize": 14,
+      "edgeOpacity": 1
     },
     "graphProperties": {
       "maxEdgeSize": 0.5,
