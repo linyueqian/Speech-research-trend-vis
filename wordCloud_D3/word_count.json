@@ -1,402 +1,402 @@
 [
   {
-    "name": "recognition",
-    "value": "5423"
-  },
-  {
-    "name": "results",
-    "value": "4629"
+    "name": "speech",
+    "value": "84694"
   },
   {
     "name": "language",
-    "value": "4513"
-  },
-  {
-    "name": "noise",
-    "value": "4071"
-  },
-  {
-    "name": "using",
-    "value": "3897"
-  },
-  {
-    "name": "children",
-    "value": "3641"
-  },
-  {
-    "name": "model",
-    "value": "3539"
-  },
-  {
-    "name": "performance",
-    "value": "3349"
-  },
-  {
-    "name": "can",
-    "value": "3264"
-  },
-  {
-    "name": "system",
-    "value": "3197"
+    "value": "18599"
   },
   {
     "name": "data",
-    "value": "2950"
+    "value": "17318"
   },
   {
-    "name": "used",
-    "value": "2851"
-  },
-  {
-    "name": "paper",
-    "value": "2806"
+    "name": "results",
+    "value": "16364"
   },
   {
     "name": "study",
-    "value": "2660"
+    "value": "16244"
   },
   {
-    "name": "two",
-    "value": "2636"
+    "name": "model",
+    "value": "16129"
   },
   {
-    "name": "based",
-    "value": "2503"
+    "name": "can",
+    "value": "14882"
   },
   {
-    "name": "acoustic",
-    "value": "2446"
+    "name": "using",
+    "value": "14863"
   },
   {
-    "name": "method",
-    "value": "2397"
+    "name": "recognition",
+    "value": "14118"
   },
   {
-    "name": "also",
-    "value": "2368"
-  },
-  {
-    "name": "information",
-    "value": "2293"
-  },
-  {
-    "name": "signal",
-    "value": "2262"
-  },
-  {
-    "name": "features",
-    "value": "2250"
-  },
-  {
-    "name": "perception",
-    "value": "2213"
-  },
-  {
-    "name": "processing",
-    "value": "2199"
-  },
-  {
-    "name": "use",
-    "value": "2184"
-  },
-  {
-    "name": "models",
-    "value": "2131"
-  },
-  {
-    "name": "hearing",
-    "value": "2050"
-  },
-  {
-    "name": "different",
-    "value": "2046"
-  },
-  {
-    "name": "auditory",
-    "value": "2014"
-  },
-  {
-    "name": "proposed",
-    "value": "1992"
-  },
-  {
-    "name": "training",
-    "value": "1987"
-  },
-  {
-    "name": "rate",
-    "value": "1932"
-  },
-  {
-    "name": "intelligibility",
-    "value": "1916"
-  },
-  {
-    "name": "speaker",
-    "value": "1899"
-  },
-  {
-    "name": "word",
-    "value": "1832"
-  },
-  {
-    "name": "analysis",
-    "value": "1826"
-  },
-  {
-    "name": "one",
-    "value": "1791"
-  },
-  {
-    "name": "words",
-    "value": "1770"
-  },
-  {
-    "name": "show",
-    "value": "1769"
-  },
-  {
-    "name": "systems",
-    "value": "1725"
-  },
-  {
-    "name": "approach",
-    "value": "1661"
-  },
-  {
-    "name": "time",
-    "value": "1628"
-  },
-  {
-    "name": "new",
-    "value": "1620"
-  },
-  {
-    "name": "research",
-    "value": "1612"
-  },
-  {
-    "name": "frequency",
-    "value": "1611"
-  },
-  {
-    "name": "production",
-    "value": "1574"
-  },
-  {
-    "name": "neural",
-    "value": "1571"
-  },
-  {
-    "name": "algorithm",
-    "value": "1546"
-  },
-  {
-    "name": "may",
-    "value": "1500"
-  },
-  {
-    "name": "quality",
-    "value": "1488"
-  },
-  {
-    "name": "task",
-    "value": "1477"
-  },
-  {
-    "name": "compared",
-    "value": "1473"
-  },
-  {
-    "name": "present",
-    "value": "1459"
-  },
-  {
-    "name": "conditions",
-    "value": "1446"
-  },
-  {
-    "name": "measures",
-    "value": "1441"
-  },
-  {
-    "name": "first",
-    "value": "1428"
-  },
-  {
-    "name": "subjects",
-    "value": "1387"
-  },
-  {
-    "name": "speakers",
-    "value": "1386"
-  },
-  {
-    "name": "test",
-    "value": "1385"
+    "name": "used",
+    "value": "12638"
   },
   {
     "name": "learning",
-    "value": "1368"
+    "value": "10663"
+  },
+  {
+    "name": "performance",
+    "value": "10126"
+  },
+  {
+    "name": "research",
+    "value": "10059"
+  },
+  {
+    "name": "method",
+    "value": "9788"
+  },
+  {
+    "name": "models",
+    "value": "9602"
+  },
+  {
+    "name": "paper",
+    "value": "9594"
+  },
+  {
+    "name": "based",
+    "value": "9527"
+  },
+  {
+    "name": "also",
+    "value": "9483"
+  },
+  {
+    "name": "proposed",
+    "value": "9396"
+  },
+  {
+    "name": "system",
+    "value": "9165"
+  },
+  {
+    "name": "different",
+    "value": "8853"
+  },
+  {
+    "name": "use",
+    "value": "8826"
+  },
+  {
+    "name": "features",
+    "value": "8798"
+  },
+  {
+    "name": "two",
+    "value": "8464"
+  },
+  {
+    "name": "children",
+    "value": "8424"
+  },
+  {
+    "name": "analysis",
+    "value": "8326"
+  },
+  {
+    "name": "training",
+    "value": "8199"
+  },
+  {
+    "name": "information",
+    "value": "7826"
+  },
+  {
+    "name": "neural",
+    "value": "7374"
   },
   {
     "name": "methods",
-    "value": "1364"
+    "value": "7336"
   },
   {
-    "name": "listeners",
-    "value": "1360"
-  },
-  {
-    "name": "voice",
-    "value": "1352"
-  },
-  {
-    "name": "spectral",
-    "value": "1351"
-  },
-  {
-    "name": "2",
-    "value": "1332"
-  },
-  {
-    "name": "significant",
-    "value": "1327"
-  },
-  {
-    "name": "well",
-    "value": "1306"
+    "name": "show",
+    "value": "6787"
   },
   {
     "name": "however",
-    "value": "1302"
+    "value": "6569"
   },
   {
-    "name": "three",
-    "value": "1294"
+    "name": "noise",
+    "value": "6358"
   },
   {
-    "name": "temporal",
-    "value": "1269"
+    "name": "approach",
+    "value": "6346"
   },
   {
-    "name": "group",
-    "value": "1257"
+    "name": "speaker",
+    "value": "6304"
   },
   {
-    "name": "development",
-    "value": "1255"
-  },
-  {
-    "name": "age",
-    "value": "1223"
-  },
-  {
-    "name": "significantly",
-    "value": "1219"
-  },
-  {
-    "name": "effects",
-    "value": "1210"
-  },
-  {
-    "name": "experiments",
-    "value": "1208"
-  },
-  {
-    "name": "presented",
-    "value": "1201"
-  },
-  {
-    "name": "error",
-    "value": "1191"
-  },
-  {
-    "name": "signals",
-    "value": "1187"
-  },
-  {
-    "name": "differences",
-    "value": "1177"
-  },
-  {
-    "name": "1",
-    "value": "1177"
-  },
-  {
-    "name": "studies",
-    "value": "1155"
-  },
-  {
-    "name": "normal",
-    "value": "1147"
-  },
-  {
-    "name": "sound",
-    "value": "1121"
-  },
-  {
-    "name": "communication",
-    "value": "1099"
-  },
-  {
-    "name": "function",
-    "value": "1097"
-  },
-  {
-    "name": "found",
-    "value": "1086"
-  },
-  {
-    "name": "accuracy",
-    "value": "1086"
-  },
-  {
-    "name": "human",
-    "value": "1063"
-  },
-  {
-    "name": "automatic",
-    "value": "1059"
-  },
-  {
-    "name": "sounds",
-    "value": "1038"
-  },
-  {
-    "name": "motor",
-    "value": "1034"
-  },
-  {
-    "name": "english",
-    "value": "1023"
-  },
-  {
-    "name": "3",
-    "value": "1006"
-  },
-  {
-    "name": "tasks",
-    "value": "1001"
-  },
-  {
-    "name": "effect",
-    "value": "993"
-  },
-  {
-    "name": "control",
-    "value": "989"
-  },
-  {
-    "name": "feature",
-    "value": "980"
+    "name": "one",
+    "value": "6199"
   },
   {
     "name": "network",
-    "value": "979"
+    "value": "6186"
   },
   {
-    "name": "level",
-    "value": "977"
+    "name": "task",
+    "value": "6142"
+  },
+  {
+    "name": "voice",
+    "value": "6109"
+  },
+  {
+    "name": "communication",
+    "value": "6054"
+  },
+  {
+    "name": "work",
+    "value": "5873"
+  },
+  {
+    "name": "systems",
+    "value": "5766"
+  },
+  {
+    "name": "hearing",
+    "value": "5735"
+  },
+  {
+    "name": "social",
+    "value": "5676"
+  },
+  {
+    "name": "processing",
+    "value": "5562"
+  },
+  {
+    "name": "acoustic",
+    "value": "5489"
+  },
+  {
+    "name": "accuracy",
+    "value": "5478"
+  },
+  {
+    "name": "patients",
+    "value": "5445"
+  },
+  {
+    "name": "asr",
+    "value": "5372"
+  },
+  {
+    "name": "time",
+    "value": "5175"
+  },
+  {
+    "name": "compared",
+    "value": "5164"
+  },
+  {
+    "name": "text",
+    "value": "5046"
+  },
+  {
+    "name": "studies",
+    "value": "4963"
+  },
+  {
+    "name": "propose",
+    "value": "4935"
+  },
+  {
+    "name": "quality",
+    "value": "4934"
+  },
+  {
+    "name": "english",
+    "value": "4924"
+  },
+  {
+    "name": "first",
+    "value": "4831"
+  },
+  {
+    "name": "may",
+    "value": "4795"
+  },
+  {
+    "name": "deep",
+    "value": "4698"
+  },
+  {
+    "name": "audio",
+    "value": "4668"
+  },
+  {
+    "name": "new",
+    "value": "4601"
+  },
+  {
+    "name": "development",
+    "value": "4591"
+  },
+  {
+    "name": "word",
+    "value": "4574"
+  },
+  {
+    "name": "tasks",
+    "value": "4567"
+  },
+  {
+    "name": "hate",
+    "value": "4548"
+  },
+  {
+    "name": "participants",
+    "value": "4536"
+  },
+  {
+    "name": "speakers",
+    "value": "4503"
+  },
+  {
+    "name": "words",
+    "value": "4474"
+  },
+  {
+    "name": "three",
+    "value": "4423"
+  },
+  {
+    "name": "well",
+    "value": "4387"
+  },
+  {
+    "name": "present",
+    "value": "4304"
+  },
+  {
+    "name": "dataset",
+    "value": "4214"
+  },
+  {
+    "name": "significant",
+    "value": "4155"
+  },
+  {
+    "name": "test",
+    "value": "4136"
+  },
+  {
+    "name": "detection",
+    "value": "4064"
+  },
+  {
+    "name": "group",
+    "value": "4057"
+  },
+  {
+    "name": "signal",
+    "value": "4035"
+  },
+  {
+    "name": "automatic",
+    "value": "3942"
+  },
+  {
+    "name": "human",
+    "value": "3917"
+  },
+  {
+    "name": "languages",
+    "value": "3884"
+  },
+  {
+    "name": "rate",
+    "value": "3846"
+  },
+  {
+    "name": "improve",
+    "value": "3842"
+  },
+  {
+    "name": "perception",
+    "value": "3794"
+  },
+  {
+    "name": "found",
+    "value": "3707"
+  },
+  {
+    "name": "=",
+    "value": "3676"
+  },
+  {
+    "name": "better",
+    "value": "3654"
+  },
+  {
+    "name": "people",
+    "value": "3646"
+  },
+  {
+    "name": "emotion",
+    "value": "3644"
+  },
+  {
+    "name": "auditory",
+    "value": "3630"
+  },
+  {
+    "name": "article",
+    "value": "3629"
+  },
+  {
+    "name": "feature",
+    "value": "3623"
+  },
+  {
+    "name": "classification",
+    "value": "3595"
+  },
+  {
+    "name": "attention",
+    "value": "3562"
+  },
+  {
+    "name": "various",
+    "value": "3548"
+  },
+  {
+    "name": "clinical",
+    "value": "3545"
+  },
+  {
+    "name": "loss",
+    "value": "3533"
+  },
+  {
+    "name": "2",
+    "value": "3519"
+  },
+  {
+    "name": "experiments",
+    "value": "3500"
+  },
+  {
+    "name": "1",
+    "value": "3494"
+  },
+  {
+    "name": "including",
+    "value": "3490"
   }
 ]
