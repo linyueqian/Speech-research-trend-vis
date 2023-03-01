@@ -1,71 +1,4 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <!-- <script src="echarts-wordcloud.min.js"></script> -->
-        <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
-        <!-- <script src="../../echarts/dist/echarts.js"></script> -->
-        <script src='../dist/echarts-wordcloud.js'></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
-    </head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 50%;
-                height: 50%;
-                margin: 0;
-            }
-        </style>
-        <div id='main'></div>
-        <canvas id="myCanvas"></canvas>
-        <script>
-            var chart = echarts.init(document.getElementById('main'));
-
-            var img = new Image();
-
-            img.src = '123.png';
-            // img.onload = function() {
-            //     // the image has been loaded
-            //     var canvas = document.getElementById('myCanvas');
-            //     if (canvas) {
-            //         var context = canvas.getContext('2d');
-            //         // do something with the context
-            //     } else {
-            //         console.error('Canvas element not found.');
-            //     }
-            //     // context.drawImage(img, 0, 0);
-            //     var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-            // };
-
-            var option = {
-                tooltip: {},
-                series: [ {
-                    type: 'wordCloud',
-                    gridSize: 2,
-                    sizeRange: [12, 50],
-                    rotationRange: [-90, 90],
-                    // shape: 'pentagon',
-                    keepAspect: true,
-                    // logo.png
-                    maskImage: img,
-                    width: '70%',
-                    height: '80%',
-                    drawOutOfBound: false,
-                    shrinkToFit : true,
-                    textStyle: {
-                        fontFamily: 'Roboto Condensed',
-                        color() {
-                            let colors = ['#ab3732', '#c75f5f', '#eb9497', '#ffdbdb', '#ffe7e7'];
-                            return colors[parseInt(Math.random() * 5)]
-                        }
-                    },
-                    emphasis: {
-                        textStyle: {
-                            fontFamily: 'Roboto Condensed',
-                            shadowBlur: 10,
-                            shadowColor: '#333'
-                        }
-                    },
-                    data: [
+[
   {
     "name": "speech",
     "value": "84694"
@@ -1067,13 +1000,3 @@
     "value": "2022"
   }
 ]
-                }
-            ]
-            };
-
-            chart.setOption(option);
-
-            window.onresize = chart.resize;
-        </script>
-    </body>
-</html>
