@@ -80,7 +80,7 @@ def load_dblp_xml(path):
         else:
             continue
         co_author_lst.append(author_lst)
-
+    # print(co_author_lst)
     # len(co-author_lst): number of paper
     # each of 'co-author_lst): list of co-authors of one paper
     return co_author_lst
@@ -90,10 +90,17 @@ def load_author_csv(path):
     Load author metadata from a CSV file.
     Each row of the CSV file contains a list of authors for a paper.
     """
-    with open(path, newline='') as f:
-        reader = csv.reader(f)
-        co_author_lst = list(reader)
-    return co_author_lst
+    with open(path, newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        authors = []
+        for row in reader:
+            author_lst = []
+            for name in row:
+                if '(-)' in name:
+                    name = name.replace('(-)', '')
+                author_lst.append(name)
+            authors.append(author_lst)
+    return authors
 
 def build_graph(co_author_lst, min_weight, frequent_co_authors=None, show_percentage_names=0):
     # build graph
@@ -159,10 +166,11 @@ def main(fre_co_authors=None,):
     f_ext = args.file.split('.')[-1]
     if f_ext == 'xml':
         co_author_lst = load_dblp_xml(path=args.file)
-    elif f_ext == 'bib' or 'txt':
+    elif f_ext == 'bib':
         co_author_lst = load_bib(path=args.file)
     elif f_ext == 'csv':
         co_author_lst = load_author_csv(path=args.file)
+        # print(co_author_lst)
     else:
         print("Wrong file name, is it has an extension of 'bib', 'xml', 'csv' or 'txt'?.")
         exit()
@@ -198,7 +206,8 @@ def main(fre_co_authors=None,):
     web.display.h = args.canvas_height
     web.display.w = args.canvas_width
     web.display.numberCoAuthor = number_co_authors
-    web.display.displayName = args.display_name
+    # web.display.displayName = args.display_name
+    web.display.displayName = args.file.split('.')[0].replace('_', ' ').title()
 
     # web.show()
 
@@ -220,17 +229,17 @@ if __name__ == '__main__':
     parser.add_argument('--color_by', default='strength', type=str, choices=['degree', 'strength'], help='Color nodes by.')
     parser.add_argument('--size_by', default='strength', type=str, choices=['degree', 'strength'], help='Size nodes by.')
     parser.add_argument('--charge', default=256, type=int, help='Charge of the graph.')
-    parser.add_argument('--link_length', default=200, type=int, help='Length of the links.')
+    parser.add_argument('--link_length', default=60, type=int, help='Length of the links.')
     parser.add_argument('--scale_link_opacity', default=1, type=int, help='Scale link opacity.')
     parser.add_argument('--scale_link_width', default=1, type=int, help='Scale link width.')
     parser.add_argument('--name_to_match', default='', type=str, help='Show a specific node name.')
-    parser.add_argument('--radius', default=15, type=int, help='Radius.')
+    parser.add_argument('--radius', default=10, type=int, help='Radius.')
     parser.add_argument('--show_node_names', default=0, type=int, help='Whether show all node names in default.')
     parser.add_argument('--hide_menu', default=1, type=int, help='Whether hide the webpage menu.')
     parser.add_argument('--show_legend', default=0, type=int, help='Whether show the legend of canvas.')
     parser.add_argument('--show_percentage_names', default=10, type=int, help='Percentage 0: show no names; for who have many co-authors, preferably ~5-15.')
-    parser.add_argument('--canvas_height', default=700, type=float, help='Height of the canvas.')
-    parser.add_argument('--canvas_width', default=1000, type=float, help='Width of the canvas.')
+    parser.add_argument('--canvas_height', default=900, type=float, help='Height of the canvas.')
+    parser.add_argument('--canvas_width', default=1200, type=float, help='Width of the canvas.')
 
     args = parser.parse_args()
 
