@@ -14,7 +14,7 @@
   },
   "legend": {
     "edgeLabel": "Co-author",
-    "colorLabel": "Modularity",
+    "colorLabel": "Modularity Class",
     "nodeLabel": "Author"
   },
   "features": {
