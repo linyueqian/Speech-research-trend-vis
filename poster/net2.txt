@@ -1,0 +1,3 @@
+These individual networks depict the detailed co-authorship of influential authors.
+The size of each node represents the number of collaborative papers published by the author.
+The edges in these networks display co-authorship relationships between authors, with thicker edges indicating stronger collaboration.
