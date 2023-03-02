@@ -161,8 +161,10 @@ def main(fre_co_authors=None,):
         co_author_lst = load_dblp_xml(path=args.file)
     elif f_ext == 'bib' or 'txt':
         co_author_lst = load_bib(path=args.file)
+    elif f_ext == 'csv':
+        co_author_lst = load_author_csv(path=args.file)
     else:
-        print("Wrong file name, is it has an extension of 'bib', 'xml', or 'txt'?.")
+        print("Wrong file name, is it has an extension of 'bib', 'xml', 'csv' or 'txt'?.")
         exit()
 
     # build graph
