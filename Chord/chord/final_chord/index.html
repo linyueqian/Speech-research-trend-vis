@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>Collaborations between MCU Avengers</title>
+	
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+		
+		<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+		<!-- Two scripts to make the Bootstrap tooltip follow the mouse movement
+			 taken from https://github.com/ghophp/bootstrap-popover-move -->
+		<script src="bootstrap.tooltip.js"></script>
+		<script src="bootstrap.popover.js"></script>
+		
+		<script src="d3.layout.chord.sort.js"></script>
+		
+		<style>
+			body {
+			  font-size: 14px;
+			  font-family: 'Lato', sans-serif;
+			  text-align: center;
+			  color: #757575;
+			  cursor: default;
+			}
+			
+			.title {
+				margin-top: 20px;
+				margin-bottom: 10px;
+				margin-left: 20px;
+				font-size:32px;
+				font-family: 'Oswald', sans-serif;
+				color: #2B2B2B;
+			}
+			
+			.texts {
+				margin-left: 20px;
+				margin-right: 20px;
+				line-height: 140%;
+			}
+			
+			.credit {
+				color: #9E9E9E;
+				font-size: 10px;
+				margin-bottom: 0.5em;
+			}
+			
+			.notes {
+				color: #9E9E9E;
+				font-size: 10px;
+			}
+			
+			.popover {
+				pointer-events: none;
+			}
+			
+			#chart{
+			  font-size: 16px;
+			  font-family: 'Bangers', sans-serif;
+			  text-align: center;
+			  fill: #2B2B2B;
+			}
+			
+			@media (min-width: 600px) {
+				#chart{
+					font-size: 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+	
+		<!-- <div class = "title">Movie collaborations between Avengers in the MCU</div>
+		<div class = "explanation texts">
+			<p style="margin-bottom: 0em;">The visualization below shows how often the original Avengers have appeared in MCU movies together since Iron Man 
+			in 2008 and counting up to Thor: Ragnarok scheduled in 2017. The thicker a line, the more movies in which both characters appeared.</p>
+			<p style="margin-top: 0.5em;">Because all six have appeared in both Avengers movies, the minimum number of co-appearances is 2. 
+			Iron Man and Black Widow are the Avengers who have appeared most often together, with 5 movies.</p></div> -->
+		<div id = "chart"></div>
+		<!-- <div class="credit texts">Created by Nadieh Bremer | <a href="http://www.visualcinnamon.com/">VisualCinnamon.com</a></div>
+		<div class = "notes texts">
+			The 12 MCU movies taken into account are: Iron Man, Iron Man 2, Iron Man 3, Captain America: The First Avenger, Captain America: The Winter Soldier, 
+			Captain America: Civil War, Thor, Thor: The Dark World, Thor: Ragnarok, The Incredible Hulk, The Avengers & Avengers: Age of Ultron</div> -->
+        <div>
+            <svg id="dataviz"></svg>
+        </div>
+        <script>
+            var margin = {left:20, top:20, right:20, bottom:20},
+                width = Math.min(window.innerWidth, 480) - margin.left - margin.right,
+                height = Math.min(window.innerHeight, 700) - margin.top - margin.bottom,
+                names =['Computer Science', 'Medicine', 'Biology', 'Physics', 'Psychology', 'Mathematics']
+                colors =["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7", "#a6d75b"];
+            var r = 10;
+            var fontsize = "20px"
+            var width2 = $(window).width();
+            var svg = d3.select("#dataviz")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", 100)
+                    .attr("transform", "translate(" + (0) + "," + (-50) + ")");
+            
+            svg.append("circle").attr("cx", 20).attr("cy", 50).attr("r", r).style("fill", "#fd7f6f")
+            svg.append("circle").attr("cx", 20).attr("cy", 80).attr("r", r).style("fill", "#7eb0d5")
+            svg.append("text").attr("x", 40).attr("y", 50).text("Computer Science").style("font-size", fontsize).style("fill", "#fd7f6f").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 40).attr("y", 80).text("Medicine").style("font-size", fontsize).style("fill", "#7eb0d5").attr("alignment-baseline", "middle")
+            svg.append("circle").attr("cx", 220).attr("cy", 50).attr("r", r).style("fill", "#b2e061")
+            svg.append("circle").attr("cx", 220).attr("cy", 80).attr("r", r).style("fill", "#bd7ebe")
+            svg.append("text").attr("x", 240).attr("y", 50).text("Biology").style("font-size", fontsize).style("fill", "#b2e061").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 240).attr("y", 80).text("Physics").style("font-size", fontsize).style("fill", "#bd7ebe").attr("alignment-baseline", "middle")
+            svg.append("circle").attr("cx", 325).attr("cy", 50).attr("r", r).style("fill", "#ffb55a")
+            svg.append("circle").attr("cx", 325).attr("cy", 80).attr("r", r).style("fill", "#ffee65")
+            svg.append("text").attr("x", 345).attr("y", 50).text("Psychology").style("font-size", fontsize).style("fill", "#ffb55a").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 345).attr("y", 80).text("Mathematics").style("font-size", fontsize).style("fill", "#ffee65").attr("alignment-baseline", "middle")
+
+        </script>
+		<script src="script.js"></script>
+
+  </body>
+</html>
