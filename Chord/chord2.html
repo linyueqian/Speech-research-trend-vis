@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,10 @@
 <body>
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
-
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <!-- Create a div where the graph will take place -->
     <div>
-        <svg id="dataviz" height=100 width=450></svg>
+        <svg id="dataviz" height=110 width=450></svg>
     </div>
     <div id="my_dataviz"></div>
 
@@ -22,21 +23,47 @@
     <div id="tooltip"></div>
     <script>
         var svg = d3.select("#dataviz")
+        // var names = ['Computer Science','Medicine','Biology','Physics','Psychology','Mathematics']
 
+        // var color = d3.scaleOrdinal()
+        //             .domain(keys)
+        //             .range(d3.schemeSet2);
+
+        // Add one dot in the legend for each name.
+        // Svg.selectAll("mydots")
+        // .data(names)
+        // .enter()
+        // .append("circle")
+        //     .attr("cx", 100)
+        //     .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+        //     .attr("r", 7)
+        //     .style("fill", function(d){ return color(d)})
+
+        // // Add one dot in the legend for each name.
+        // Svg.selectAll("mylabels")
+        // .data(names)
+        // .enter()
+        // .append("text")
+        //     .attr("x", 120)
+        //     .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+        //     .style("fill", function(d){ return color(d)})
+        //     .text(function(d){ return d})
+        //     .attr("text-anchor", "left")
+        //     .style("alignment-baseline", "middle")
         // Handmade legend
-        svg.append("circle").attr("cx",50).attr("cy",50).attr("r", 6).style("fill", "#fd7f6f")
-        svg.append("circle").attr("cx",50).attr("cy",80).attr("r", 6).style("fill", "#7eb0d5")
-        svg.append("text").attr("x", 70).attr("y", 50).text("Computer Science").style("font-size", "15px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", 70).attr("y", 80).text("Medicine").style("font-size", "15px").attr("alignment-baseline","middle")
+        svg.append("circle").attr("cx", 50).attr("cy", 50).attr("r", 6).style("fill", "#fd7f6f")
+        svg.append("circle").attr("cx", 50).attr("cy", 80).attr("r", 6).style("fill", "#7eb0d5")
+        svg.append("text").attr("x", 70).attr("y", 50).text("Computer Science").style("font-size", "15px").style("fill", "#fd7f6f").attr("alignment-baseline", "middle")
+        svg.append("text").attr("x", 70).attr("y", 80).text("Medicine").style("font-size", "15px").style("fill", "#7eb0d5").attr("alignment-baseline", "middle")
 
-        svg.append("circle").attr("cx",200).attr("cy",50).attr("r", 6).style("fill", "#b2e061")
-        svg.append("circle").attr("cx",200).attr("cy",80).attr("r", 6).style("fill", "#bd7ebe")
-        svg.append("text").attr("x", 220).attr("y", 50).text("Biology").style("font-size", "15px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", 220).attr("y", 80).text("Physics").style("font-size", "15px").attr("alignment-baseline","middle")
-        svg.append("circle").attr("cx",300).attr("cy",50).attr("r", 6).style("fill", "#ffb55a")
-        svg.append("circle").attr("cx",300).attr("cy",80).attr("r", 6).style("fill", "#ffee65")
-        svg.append("text").attr("x", 320).attr("y", 50).text("Psychology").style("font-size", "15px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", 320).attr("y", 80).text("Mathematics").style("font-size", "15px").attr("alignment-baseline","middle")
+        svg.append("circle").attr("cx", 200).attr("cy", 50).attr("r", 6).style("fill", "#b2e061")
+        svg.append("circle").attr("cx", 200).attr("cy", 80).attr("r", 6).style("fill", "#bd7ebe")
+        svg.append("text").attr("x", 220).attr("y", 50).text("Biology").style("font-size", "15px").style("fill", "#b2e061").attr("alignment-baseline", "middle")
+        svg.append("text").attr("x", 220).attr("y", 80).text("Physics").style("font-size", "15px").style("fill", "#bd7ebe").attr("alignment-baseline", "middle")
+        svg.append("circle").attr("cx", 300).attr("cy", 50).attr("r", 6).style("fill", "#ffb55a")
+        svg.append("circle").attr("cx", 300).attr("cy", 80).attr("r", 6).style("fill", "#ffee65")
+        svg.append("text").attr("x", 320).attr("y", 50).text("Psychology").style("font-size", "15px").style("fill", "#ffb55a").attr("alignment-baseline", "middle")
+        svg.append("text").attr("x", 320).attr("y", 80).text("Mathematics").style("font-size", "15px").style("fill", "#ffee65").attr("alignment-baseline", "middle")
 
         // create the svg area
         var svg = d3.select("#my_dataviz")
@@ -48,29 +75,29 @@
 
         // create a matrix
         var matrix = [
-                    [  0, 504,  12,  26, 125,  87],
-                    [287,   0,  69,  12, 700,  22],
-                    [ 13,  60,   0,   0,  16,   0],
-                    [ 59,  16,   0,   0,   0,   0],
-                    [ 39, 399,   0,   0,   0,   0],
-                    [ 14,  15,   0,   0,   0,   0]];
+            [0, 504, 12, 26, 125, 87],
+            [287, 0, 69, 12, 700, 22],
+            [13, 60, 0, 0, 16, 0],
+            [59, 16, 0, 0, 0, 0],
+            [39, 399, 0, 0, 0, 0],
+            [14, 15, 0, 0, 0, 0]];
 
-        var names = ['Computer Science','Medicine','Biology','Physics','Psychology','Mathematics'];
+        var names = ['Computer Science', 'Medicine', 'Biology', 'Physics', 'Psychology', 'Mathematics'];
 
         var colors = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7", "#a6d75b"];
-        
+
         // var colors = [ "#ffe6e6", "#ffcccc", "#ff9999", "#ff8080", "#ff6666", "#ff4d4d", "#ff3333", 
- 
+
         // "#ff1a1a", "#ff0000", "#e60000", "#cc0000", "#b30000", "#990000", "#800000", "#660000", "#4d0000"];
 
         // var colors = [ "","","","","","","","","","","","","","","","","","","",""
         // ,"","","","","","","","","","","","","","","","","",""];
 
-        var color = d3.scaleOrdinal()
-            .domain(d3.range(12))
-            .range(["#115f9a", "#1984c5", "#22a7f0", "#48b5c4", "#76c68f", "#a6d75b", "#c9e52f", "#d0ee11", "#d0f400", 
-        "#d7e1ee", "#cbd6e4", "#bfcbdb", "#b3bfd1", "#a4a2a8", "#df8879", "#c86558", "#b04238", "#991f17", 
-        "#0000b3", "#0010d9", "#0020ff", "#0040ff", "#0060ff", "#0080ff", "#009fff", "#00bfff", "#00ffff"]);
+        // var color = d3.scaleOrdinal()
+        //     .domain(d3.range(12))
+        //     .range(["#115f9a", "#1984c5", "#22a7f0", "#48b5c4", "#76c68f", "#a6d75b", "#c9e52f", "#d0ee11", "#d0f400",
+        //         "#d7e1ee", "#cbd6e4", "#bfcbdb", "#b3bfd1", "#a4a2a8", "#df8879", "#c86558", "#b04238", "#991f17",
+        //         "#0000b3", "#0010d9", "#0020ff", "#0040ff", "#0060ff", "#0080ff", "#009fff", "#00bfff", "#00ffff"]);
 
         // give this matrix to d3.chord(): it will calculates all the info we need to draw arc and ribbon
         var res = d3.chord()
@@ -88,10 +115,10 @@
             .append("g")
             .append("path")
             //.style("fill", function(d) { return color(d.index); })
-            .style("fill", function(d, i){return colors[i]})
+            .style("fill", function (d, i) { return colors[i] })
             .style("stroke", "none")
             .attr("d", d3.arc()
-                .innerRadius(230)
+                .innerRadius(225)
                 .outerRadius(240)
             )
 
@@ -112,7 +139,7 @@
         var showTooltip = function (d) {
             tooltip
                 .style("opacity", 1)
-                .html("Major field: " + names[d.source.index] + "-" + matrix[d.source.index][d.target.index] + ", " + names[d.target.index]+ "-" + matrix[d.target.index][d.source.index])
+                .html("Major field: " + names[d.source.index] + "-" + matrix[d.source.index][d.target.index] + ", " + names[d.target.index] + "-" + matrix[d.target.index][d.source.index])
                 .style("left", (d3.event.pageX + 15) + "px")
                 .style("top", (d3.event.pageY - 28) + "px")
         }
@@ -137,13 +164,14 @@
                 .radius(220)
             )
             // .style("fill", function(d) { return color(d.index); })
-            .style("fill", function(d, i){return colors[i]})
+            .style("fill", function (d, i) { return colors[i] })
             .style("opacity", 0.9)
-            .style("stroke", "black")
+            .style("stroke", "none")
             .style("opacity", 0.8)
             .on("mouseover", showTooltip)
             .on("mouseleave", hideTooltip)
 
     </script>
 </body>
+
 </html>

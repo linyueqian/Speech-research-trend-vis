@@ -21,14 +21,20 @@ var Names =['Computer Science', 'Medicine', 'Biology', 'Physics', 'Psychology', 
 // 	[2,3,3,3,2,0], //Thor
 // ];
 
+// var matrix = [
+//     [0, 12, 26, 504, 125, 87],
+//     [13, 0, 0, 60, 16, 0],
+//     [59, 0, 0, 16, 0, 0],
+//     [287, 69, 12, 0, 700, 22],
+//     [39, 0, 0, 399, 0, 0],
+//     [14, 0, 0, 15, 0, 0]];
 var matrix = [
-    [0, 12, 26, 504, 125, 87],
-    [13, 0, 0, 60, 16, 0],
-    [59, 0, 0, 16, 0, 0],
-    [287, 69, 12, 0, 700, 22],
-    [39, 0, 0, 399, 0, 0],
-    [14, 0, 0, 15, 0, 0]];
-
+	[0, 120, 126, 504, 125, 187],
+	[130, 0, 205, 60, 116, 94],
+	[159, 145, 0, 116, 250, 149],
+	[287, 169, 112, 0, 700, 221],
+	[39, 125, 200, 399, 0, 0],
+	[140, 123, 234, 150, 0, 0]];
 // var matrix = [
 //     [0, 12, 26, 125, 87, 504],
 //     [13, 0, 0, 16, 0, 60],
@@ -47,7 +53,7 @@ var colors = d3.scale.ordinal()
 
 //A "custom" d3 chord function that automatically sorts the order of the chords in such a manner to reduce overlap	
 var chord = customChordLayout()
-    .padding(.15)
+    .padding(.10)
     .sortChords(d3.descending) //which chord should be shown on top when chords cross. Now the biggest chord is at the bottom
 	.matrix(matrix);
 		
@@ -78,7 +84,7 @@ function getGradID(d){ return "linkGrad-" + d.source.index + "-" + d.target.inde
 //Create the gradients definitions for each chord
 var grads = svg.append("defs").selectAll("linearGradient")
 	.data(chord.chords())
-   .enter().append("linearGradient")
+    .enter().append("linearGradient")
 	.attr("id", getGradID)
 	.attr("gradientUnits", "userSpaceOnUse")
 	.attr("x1", function(d,i) { return innerRadius * Math.cos((d.source.endAngle-d.source.startAngle)/2 + d.source.startAngle - Math.PI/2); })
@@ -148,14 +154,14 @@ outerArcs.append("path")
 ////////////////////////////////////////////////////////////
 
 //Append the label names on the outside
-// outerArcs.append("text")
-// 	.attr("class", "titles")
-// 	.attr("dy", function(d,i) { return (d.endAngle > 90*Math.PI/180 & d.startAngle < 270*Math.PI/180 ? 25 : -16); })
-//     .append("textPath")
-// 	.attr("startOffset","50%")
-// 	.style("text-anchor","middle")
-// 	.attr("xlink:href",function(d,i){return "#arc"+i;})
-// 	.text(function(d,i){ return Names[i]; });
+outerArcs.append("text")
+	.attr("class", "titles")
+	.attr("dy", function(d,i) { return (d.endAngle > 90*Math.PI/180 & d.startAngle < 270*Math.PI/180 ? 25 : -16); })
+    .append("textPath")
+	.attr("startOffset","50%")
+	.style("text-anchor","middle")
+	.attr("xlink:href",function(d,i){return "#arc"+i;})
+	.text(function(d,i){ return Names[i]; });
 	
 ////////////////////////////////////////////////////////////
 ////////////////// Draw inner chords ///////////////////////
