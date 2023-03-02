@@ -80,7 +80,7 @@ def load_dblp_xml(path):
         else:
             continue
         co_author_lst.append(author_lst)
-
+    # print(co_author_lst)
     # len(co-author_lst): number of paper
     # each of 'co-author_lst): list of co-authors of one paper
     return co_author_lst
@@ -90,10 +90,17 @@ def load_author_csv(path):
     Load author metadata from a CSV file.
     Each row of the CSV file contains a list of authors for a paper.
     """
-    with open(path, newline='') as f:
-        reader = csv.reader(f)
-        co_author_lst = list(reader)
-    return co_author_lst
+    with open(path, newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        authors = []
+        for row in reader:
+            author_lst = []
+            for name in row:
+                if '(-)' in name:
+                    name = name.replace('(-)', '')
+                author_lst.append(name)
+            authors.append(author_lst)
+    return authors
 
 def build_graph(co_author_lst, min_weight, frequent_co_authors=None, show_percentage_names=0):
     # build graph
@@ -159,10 +166,11 @@ def main(fre_co_authors=None,):
     f_ext = args.file.split('.')[-1]
     if f_ext == 'xml':
         co_author_lst = load_dblp_xml(path=args.file)
-    elif f_ext == 'bib' or 'txt':
+    elif f_ext == 'bib':
         co_author_lst = load_bib(path=args.file)
     elif f_ext == 'csv':
         co_author_lst = load_author_csv(path=args.file)
+        # print(co_author_lst)
     else:
         print("Wrong file name, is it has an extension of 'bib', 'xml', 'csv' or 'txt'?.")
         exit()
@@ -198,7 +206,8 @@ def main(fre_co_authors=None,):
     web.display.h = args.canvas_height
     web.display.w = args.canvas_width
     web.display.numberCoAuthor = number_co_authors
-    web.display.displayName = args.display_name
+    # web.display.displayName = args.display_name
+    web.display.displayName = args.file.split('.')[0].replace('_', ' ').title()
 
     # web.show()
 
