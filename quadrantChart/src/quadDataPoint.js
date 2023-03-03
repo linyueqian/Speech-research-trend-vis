@@ -25,7 +25,7 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 		}
 
 		info.show = function(){
-			var x = 0, y = 0, s = 5 / cam.zoom, bb, bb2;
+			var x = 0, y = 0, s = 4 / cam.zoom, bb, bb2;
 			var tri = 'M'+x+','+y+'l-2,4l,4,0';
 			x -= 50;
 			y += 4;
@@ -49,7 +49,7 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 			);
 
 
-			info.push(paper.text(x + 2, y + 3, '1st Author Name')
+			info.push(paper.text(x + 2, y + 3, '1st Author Name:')
 				.attr('fill', '#fff')
 				.attr('font-family', QUAD_FONT)
 				.attr('text-anchor', 'start')
@@ -61,22 +61,22 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 			info.peek().transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y);
 
 			info.push(link = paper.text(x + 5 + bb.width, y + 3, point.firstAuthorName)
-				.attr('fill', '#bbb')
+				.attr('fill', '#fff')
 				.attr('font-family', QUAD_FONT)
 				.attr('text-anchor', 'start')
 				.attr('font-weight', 'bold')
 				.attr('font-size', '4px')
 				.attr('cursor', 'pointer')
-				.hover(
-					function(){ with(link){
-						attr('fill', '#fff');
-					}}, // In handeler
-					function(){ with(link){
-						attr('fill', '#bbb');
-					}}  // Out handeler
-				)
+				// .hover(
+				// 	function(){ with(link){
+				// 		attr('fill', '#fff');
+				// 	}}, // In handeler
+				// 	function(){ with(link){
+				// 		attr('fill', '#bbb');
+				// 	}}  // Out handeler
+				// )
 				.click(function(){
-					window.location ='/asset/' + point.Id + '/summary';
+					// window.location ='/asset/' + point.Id + '/summary';
 				})
 			);
 
