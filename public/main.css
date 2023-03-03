@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #2b5055;
+    background-color: #454342;
     /* font-size: 12px;
 	line-height: 1.25em; */
 }
@@ -27,7 +27,7 @@ i {
 }
 
 .navbar-mainbg {
-    background-color: #5c7c9a;
+    background-color: #a99c92;
     padding: 0px;
 }
 
@@ -62,7 +62,7 @@ i {
 }
 
 #navbarSupportedContent>ul>li.active>a {
-    color: #5c7c9a;
+    color: #a99c92;
     background-color: transparent;
     transition: all 0.7s;
 }
@@ -123,7 +123,7 @@ i {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #5c7c9a;
+    background-color: #a99c92;
 }
 
 .hori-selector .right:before {
