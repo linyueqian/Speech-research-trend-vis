@@ -26,14 +26,16 @@ var QuadBackground = function(id, config){
 		var hw = parentWidth() >> 1, hh = parentHeight() >> 1; 
 
 		// white bg
-		paper.rect(0, 0, parentWidth(), parentHeight())
-			.attr('stroke-width', 0)
-		    .attr('fill', '#fff');
+		// paper.rect(0, 0, parentWidth(), parentHeight())
+		// 	.attr('stroke-width', 0)
+		// 	.attr('fill', '#fff')
+		// 	.attr('opacity', 0.4);
+
 		paper.canvas.style.zIndex = 0;
 
 		// y axis title   
 		paper.text(30, hh - 64, config.axes.y.title)
-			.attr('fill', '#000')
+			.attr('fill', '#fff')
 			.attr('font-size', 20)
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
@@ -41,7 +43,7 @@ var QuadBackground = function(id, config){
 
 		// x axis title
 		var xTitle = paper.text(hw - 42, parentHeight() - 30, config.axes.x.title)
-			.attr('fill', '#000')
+			.attr('fill', '#fff')
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
 			.attr('font-size', 20);
@@ -53,6 +55,7 @@ var QuadBackground = function(id, config){
 		    .attr('fill', config.axes.colors.tick);
 		paper.text(parentWidth() - off - 10, 15, 'Key')
 			.attr('font-size', 16)
+			.attr('fill', '#fff')
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
 		    .attr('text-anchor', 'start');
@@ -72,6 +75,7 @@ var QuadBackground = function(id, config){
 			renderPoint(keyItem.pos, keyItem.color);
 			paper.text(keyItem.pos.x + 15, keyItem.pos.y, keyItem.title)
 				.attr('font-size', 14)
+				.attr('fill', '#fff')
 				.attr('font-family', QUAD_FONT)
 				.attr('font-weight', 'bold')
 			    .attr('text-anchor', 'start');

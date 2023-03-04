@@ -1,0 +1,136 @@
+<html>
+	<head>
+        <h1>Quadrant Chart</h1>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/raphael.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="src/matrix.js"></script>
+		<script type="text/javascript" src="src/spatialTable.js"></script>
+		<script type="text/javascript" src="src/linkedList.js"></script>
+		<script type="text/javascript" src="src/quadData.js"></script>
+		<script type="text/javascript" src="src/quadAnimation.js"></script>
+		<script type="text/javascript" src="src/quadCamera.js"></script>
+		<script type="text/javascript" src="src/quadBackground.js"></script>
+		<script type="text/javascript" src="src/quadDataPoint.js"></script>
+		<script type="text/javascript" src="src/quadHood.js"></script>
+		<script type="text/javascript" src="src/quadAxes.js"></script>
+		<script type="text/javascript" src="src/quadView.js"></script>
+		<script type="text/javascript" src="src/quadChart.js"></script>
+		<script type="text/javascript" src="src/quadStats.js"></script>
+		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript">
+			var bsData = function(i, minX, maxX, minY, maxY){
+				var data = [];
+				for(;i--;){
+					data.push({
+						Serial: 'A' + i,
+						Notes: 'Notes for A' + i + 'abcde fghi zklm nop',
+						X: Math.random() * (maxX - minX) + minX,
+						Y: Math.random() * (maxY - minY) + minY,
+						Neighborhood: -1
+					});
+				}
+				return data;
+			}
+
+			var BsChartData = bsData(1, -100, 100, -100, 100); 
+
+			function QuadCtrl($scope){
+				$scope.DataSet = BsChartData;
+				
+				$scope.Clicked = function(){
+					BsChartData.push(Math.random());
+				}
+
+				$scope.$watch('DataSet', function(){
+					// TODO finish addition of data to the chart
+					//$scope.DataSet = [];
+					//alert('Yo! it changed');
+				});
+			}
+		</script>
+		<style>
+			input, label{
+				float: left;
+			}
+
+			.link{
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+
+	<body style="background:#fff" ng-app>
+		<div id="quadChart" style="position:relative;width:50%;top:10%;height:70%"></div>
+
+		<script type="text/javascript">
+			var chartKey = [
+				{
+					title: 'low publication \n low citation',
+					color: '#d99a00'
+				},
+				{
+					title: 'high publication \n low citation',
+					color: '#db5129'
+				},
+				{
+					title: 'high publication \n high citation',
+					color: '#97c600'
+				},
+				{
+					title: 'low publication \n high citation',
+					color: '#4a99a5'
+				}
+			];
+
+			var chart = QuadChart('quadChart', {
+				axes:{
+					colors: {
+						tick: '#e2e2e2',
+						text: '#969696'
+					},
+					x: {
+						title: '1st Author Paper Count(log)',
+						tickInterval: 9
+					},
+					y: {
+						title: '1st Author Citation Count(-log)',
+						tickInterval: 9
+					}
+				}, 
+				quadrants: {
+					colors: {
+						background: [
+							'#f7fafb',
+							'#fafcf2',
+							'#fcf7f4',
+							'#fdfaf2'
+						],
+						text: [
+							'#4a99a5',
+							'#97c600',
+							'#db5129',
+							'#d99a00'
+						],
+						dataFill: [
+							'#4a99a5',
+							'#97c600',
+							'#db5129',
+							'#d99a00'
+						]
+					},
+					title: [
+						'',
+						'',
+						'',
+						''
+					]
+				},
+				key: chartKey,
+				hoodRadius: 5
+			});
+
+			__view();
+		</script>
+	</body>
+</html>

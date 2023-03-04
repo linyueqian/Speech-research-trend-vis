@@ -88,7 +88,7 @@ var QuadAxes = function(id, config, dataSpace, cam){
 			}
 
 		}
-		ticks.scalePath = paper.path(scale).attr('stroke', config.axes.colors.tick); // finally, draw the ticks
+		ticks.scalePath = paper.path(scale).attr('stroke', config.axes.colors.tick).attr('stroke', '#ffffff');
 		ticks.interval = interval;
 		ticks.min = min;
 		ticks.max = max;
