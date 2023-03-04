@@ -17,57 +17,23 @@
       
     </head>
     <body>
+        <div class="sigma-parent">
+          <div class="sigma-expand" id="sigma-canvas"></div>
+        </div>
+
         <div id="mainpanel">
           <div class="col">
             <div id="maintitle" style="margin-top: -100px;"></div>
             <div id="title"></div>
             <div id="titletext"></div>
             <div class="info cf">
-              <h2 style="color:brown;">⬇More about the influential authors.</h2>
-              <!-- <select>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </select> -->
+              <h2 style="color:brown;">⬇Bar Chart Race</h2>
               <div class="page-wrapper" style="margin-bottom: 70px;">
                 <a class="btn trigger" href="javascript:;">Explore</a>
               </div>
-              <!-- <dl>
-                <dt class="moreinformation"></dt>
-                <dd class="line"><a href="#information" class="line fb">More about this visualisation</a></dd>
-              </dl> -->
-            </div>
-            <div id="legend">
-              <div class="box">
-                <h2>Legend:</h2>
-                <dl>
-                  <dt class="node"></dt>
-                  <dd></dd>
-                  <dt class="edge"></dt>
-                  <dd></dd>
-                  <dt class="colours"></dt>
-                  <dd></dd>
-                </dl>
-              </div>
-            </div>
-            <div class="b1">
-              <form>
-                <div id="search" class="cf">
-                  <h2>Search:</h2>
-                  <input type="text" name="search" value="Search by name" class="empty" />
-                  <div class="state"></div>
-                  <div class="results"></div>
-                </div>
-                <div class="cf" id="attributeselect">
-                  <h2>Group Selector:</h2>
-                  <div class="select">Select Group</div>
-                  <div class="list cf"></div>
-                </div>
-              </form>
             </div>
           </div>
-          <div id="information">
-          </div>
+          
         </div>
         <style>
             html, body, #main {
@@ -79,7 +45,6 @@
         <div id='main'></div>
         <canvas id="myCanvas"></canvas>
         <script>
-            
             var chart = echarts.init(document.getElementById('main'));
 
             var img = new Image();
@@ -101,7 +66,7 @@
                     textStyle: {
                         fontFamily: 'Roboto Condensed',
                         color() {
-                            let colors = ['#ab3732', '#c75f5f', '#eb9497', '#ffdbdb', '#ffe7e7'];
+                            let colors = ['#fc6c85', '#c75f5f', '#eb9497', '#ffdbdb', '#ffe7e7'];
                             return colors[parseInt(Math.random() * 5)]
                         }
                     },
