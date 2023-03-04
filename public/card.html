@@ -21,14 +21,24 @@
         }
 
         .box {
-            width: 300px;
+            /* width: 300px;
             height: 300px;
             margin: 10px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
             border-radius: 10px;
             transition: transform 0.3s ease-in-out;
+            background-color: #a79c93; */
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
             background-color: #a79c93;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
         }
 
         .box:hover {
@@ -37,16 +47,46 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
         }
 
-        .box img {
+        .image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .image img {
             display: block;
             width: 100%;
-            height: 150px;
+            height: 100%;
+            transition: all 0.5s;
             object-fit: cover;
+        }
+
+        .box:hover .image img {
+            transform: scale(1.2);
+            filter: blur(1px);
+        }
+
+        .text {
+            position: absolute;
+            bottom: -180px;
+            /* width: 320px; */
+            height: 270px;
+            transition: 0.5s;
+            /* margin-left: -5px; */
+            background-color: #a79c93;
             border-radius: 10px;
+            padding: 10px;
+        }
+
+        .box:hover .text {
+            bottom: 0px;
         }
 
         a {
-            padding: 10px;
+            /* padding: 10px; */
             font-size: 20px;
             font-weight: 500;
             text-align: center;
@@ -61,21 +101,71 @@
             color: #fff;
             text-decoration: none;
         }
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <a class="box" href="network.html" target="_top">
+          <div class="image">
             <img src="images/net1.png" alt="network 1">
-            <h2 class="title">Network 1</h2>
+          </div>
+          <div class="text">
+            <h2 class="title">Network</h2>
+            <br>
             <p>The co-occurrence network showing the collaboration among different authors.</p>
+          </div>
         </a>
         <a class="box" href="network.html" target="_top">
-            <img src="images/net1.png" alt="network 1">
-            <h2 class="title">Network 1</h2>
-        </a>
-
+            <div class="image">
+              <img src="images/net1.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Network</h2>
+              <br>
+              <p>The co-occurrence network showing the collaboration among different authors.</p>
+            </div>
+          </a>
+          <a class="box" href="network.html" target="_top">
+            <div class="image">
+              <img src="images/net1.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Network</h2>
+              <br>
+              <p>The co-occurrence network showing the collaboration among different authors.</p>
+            </div>
+          </a><a class="box" href="network.html" target="_top">
+            <div class="image">
+              <img src="images/net1.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Network</h2>
+              <br>
+              <p>The co-occurrence network showing the collaboration among different authors.</p>
+            </div>
+          </a><a class="box" href="network.html" target="_top">
+            <div class="image">
+              <img src="images/net1.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Network</h2>
+              <br>
+              <p>The co-occurrence network showing the collaboration among different authors.</p>
+            </div>
+          </a><a class="box" href="network.html" target="_top">
+            <div class="image">
+              <img src="images/net1.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Network</h2>
+              <br>
+              <p>The co-occurrence network showing the collaboration among different authors.</p>
+            </div>
+          </a>
+      </div>
+      
     </div>
 </body>
 
