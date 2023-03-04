@@ -9,7 +9,7 @@
   },
   "text": {
     "more": "The final visualization is a network graph representing academic collaborations between authors. The nodes of the graph represent authors and the edges represent collaborations between them. The size and color of the nodes and edges are based on the degree and modularity of the nodes, respectively. Modularity is used to group nodes into communities based on their connections to other nodes in the graph, while degree represents the number of connections a node has. The visualization is interactive, built using Sigma.js library, and can be explored in a web browser. The visualization enables users to analyze the structure of the academic collaboration network, identify key authors and communities, and gain insights into the relationships between them.",
-    "intro": "The final visualization is an interactive network graph that shows academic collaborations between authors. Nodes represent authors and edges represent collaborations, with size and color reflecting degree and modularity, respectively. The visualization is built using Sigma.js library and enables users to analyze the network structure, identify key authors and communities, and gain insights into their relationships.",
+    "intro": "The final visualization is an interactive network graph that shows academic collaborations between authors. Nodes represent authors and edges represent collaborations, with size and color reflecting weighted degree. The visualization is built using Sigma.js library and enables users to analyze the network structure, identify key authors and communities, and gain insights into their relationships.",
     "title": "Author and Co-Author Network with the Top 100 cited papers (2020-2023)"
   },
   "legend": {
