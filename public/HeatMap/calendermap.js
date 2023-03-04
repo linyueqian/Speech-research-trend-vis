@@ -15,7 +15,7 @@ var globalData = [];
 // var color = d3.scale.category20()
 //     .domain([0, 1]);
 
-var color = d3.scale.linear().range(["white", '#002b53'])
+var color = d3.scale.linear().range(["white", 'darkred'])
     .domain([0, 8.9]);
 
 // var color = scaleLinear()
