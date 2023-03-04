@@ -20,8 +20,8 @@
   <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" />
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
   <link rel="stylesheet" media="screen and (max-height: 770px)" href="css/tablet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
 </head>
-
 
 <body>
   <div class="sigma-parent">
@@ -34,11 +34,14 @@
       <div id="titletext"></div>
       <div class="info cf">
         <h2 style="color:brown;">⬇More about the influential authors.</h2>
-        <select>
+        <!-- <select>
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
-        </select>
+        </select> -->
+        <div class="page-wrapper" style="margin-bottom: 70px;">
+          <a class="btn trigger" href="javascript:;">Explore</a>
+        </div>
         <!-- <dl>
           <dt class="moreinformation"></dt>
           <dd class="line"><a href="#information" class="line fb">More about this visualisation</a></dd>
@@ -100,13 +103,50 @@
       </div>
     </div>
   </div>
-
+  <div class="modal-wrapper">
+    <div class="modal">
+      <div class="head">
+        <a class="btn-home" href="./gallery.html"><i class="fas fa-home"></i></a>
+        <a class="btn-close trigger" href="javascript:;"></a>
+      </div>
+      <div class="content">
+        <iframe id="my-iframe" src="./gallery.html" width="100%" height=850px frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript">
     (function () {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+
+    $(document).ready(function () {
+      $('.trigger').click(function () {
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur');
+        const homeButton = document.querySelector('.btn-home');
+        const iframe = document.querySelector('#my-iframe');
+
+        homeButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          iframe.src = homeButton.href;
+        });
+        // setTimeout(function () {
+        //   // Get the .content div
+        //   const contentDiv = document.querySelector('.content');
+
+        //   // Get the height of the .content div
+        //   const contentHeight = contentDiv.offsetHeight;
+
+        //   // Set the height of the iframe to match the height of the .content div
+        //   const iframe = document.querySelector('#my-iframe');
+        //   iframe.style.height = `${contentHeight}px`;
+        // }, 300);
+
+        return false;
+      });
+    });
 
   </script>
 </body>
