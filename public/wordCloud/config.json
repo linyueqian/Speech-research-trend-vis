@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": "Yueqian"
+  },
+  "text": {
+    "more": "The final visualization is a network graph representing academic collaborations between authors. The nodes of the graph represent authors and the edges represent collaborations between them. The size and color of the nodes and edges are based on the degree and modularity of the nodes, respectively. Modularity is used to group nodes into communities based on their connections to other nodes in the graph, while degree represents the number of connections a node has. The visualization is interactive, built using Sigma.js library, and can be explored in a web browser. The visualization enables users to analyze the structure of the academic collaboration network, identify key authors and communities, and gain insights into the relationships between them.",
+    "intro": "The final visualization is an interactive network graph that shows academic collaborations between authors. Nodes represent authors and edges represent collaborations, with size and color reflecting weighted degree. The visualization is built using Sigma.js library and enables users to analyze the network structure, identify key authors and communities, and gain insights into their relationships.",
+    "title": "Author and Co-Author Network with the Top 100 cited papers (2020-2023)"
+  },
+  "legend": {
+    "edgeLabel": "Co-author",
+    "colorLabel": "Weight",
+    "nodeLabel": "Author"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": false,
+    "hoverBehavior": "default"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": false,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "curve",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 10,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 14
+    },
+    "graphProperties": {
+      "maxEdgeSize": 0.5,
+      "minEdgeSize": 0.2,
+      "minNodeSize": 1,
+      "maxNodeSize": 7
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}
