@@ -43,80 +43,80 @@ Object.size = function(obj) {
     return size;
 };
 
-function initSigma(config) {
-	var data=config.data
+// function initSigma(config) {
+// 	var data=config.data
 	
-	var drawProps, graphProps,mouseProps;
-	if (config.sigma && config.sigma.drawingProperties) 
-		drawProps=config.sigma.drawingProperties;
-	else
-		drawProps={
-        defaultLabelColor: "#000",
-        defaultLabelSize: 14,
-        defaultLabelBGColor: "#ddd",
-        defaultHoverLabelBGColor: "#002147",
-        defaultLabelHoverColor: "#fff",
-        labelThreshold: 10,
-        defaultEdgeType: "curve",
-        hoverFontStyle: "bold",
-        fontStyle: "bold",
-        activeFontStyle: "bold"
-    };
+// 	var drawProps, graphProps,mouseProps;
+// 	if (config.sigma && config.sigma.drawingProperties) 
+// 		drawProps=config.sigma.drawingProperties;
+// 	else
+// 		drawProps={
+//         defaultLabelColor: "#000",
+//         defaultLabelSize: 14,
+//         defaultLabelBGColor: "#ddd",
+//         defaultHoverLabelBGColor: "#002147",
+//         defaultLabelHoverColor: "#fff",
+//         labelThreshold: 10,
+//         defaultEdgeType: "curve",
+//         hoverFontStyle: "bold",
+//         fontStyle: "bold",
+//         activeFontStyle: "bold"
+//     };
     
-    if (config.sigma && config.sigma.graphProperties)	
-    	graphProps=config.sigma.graphProperties;
-    else
-    	graphProps={
-        minNodeSize: 1,
-        maxNodeSize: 7,
-        minEdgeSize: 0.2,
-        maxEdgeSize: 0.5
-    	};
+//     if (config.sigma && config.sigma.graphProperties)	
+//     	graphProps=config.sigma.graphProperties;
+//     else
+//     	graphProps={
+//         minNodeSize: 1,
+//         maxNodeSize: 7,
+//         minEdgeSize: 0.2,
+//         maxEdgeSize: 0.5
+//     	};
 	
-	if (config.sigma && config.sigma.mouseProperties) 
-		mouseProps=config.sigma.mouseProperties;
-	else
-		mouseProps={
-        minRatio: 0.75, // How far can we zoom out?
-        maxRatio: 20, // How far can we zoom in?
-    	};
+// 	if (config.sigma && config.sigma.mouseProperties) 
+// 		mouseProps=config.sigma.mouseProperties;
+// 	else
+// 		mouseProps={
+//         minRatio: 0.75, // How far can we zoom out?
+//         maxRatio: 20, // How far can we zoom in?
+//     	};
 	
-    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
-    sigInst = a;
-    a.active = !1;
-    a.neighbors = {};
-    a.detail = !1;
+//     var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
+//     sigInst = a;
+//     a.active = !1;
+//     a.neighbors = {};
+//     a.detail = !1;
 
 
-    dataReady = function() {//This is called as soon as data is loaded
-		a.clusters = {};
+//     dataReady = function() {//This is called as soon as data is loaded
+// 		a.clusters = {};
 
-		a.iterNodes(
-			function (b) { //This is where we populate the array used for the group select box
+// 		a.iterNodes(
+// 			function (b) { //This is where we populate the array used for the group select box
 
-				// note: index may not be consistent for all nodes. Should calculate each time. 
-				 // alert(JSON.stringify(b.attr.attributes[5].val));
-				// alert(b.x);
-				a.clusters[b.color] || (a.clusters[b.color] = []);
-				a.clusters[b.color].push(b.id);//SAH: push id not label
-			}
+// 				// note: index may not be consistent for all nodes. Should calculate each time. 
+// 				 // alert(JSON.stringify(b.attr.attributes[5].val));
+// 				// alert(b.x);
+// 				a.clusters[b.color] || (a.clusters[b.color] = []);
+// 				a.clusters[b.color].push(b.id);//SAH: push id not label
+// 			}
 		
-		);
+// 		);
 	
-		a.bind("upnodes", function (a) {
-		    nodeActive(a.content[0])
-		});
+// 		a.bind("upnodes", function (a) {
+// 		    nodeActive(a.content[0])
+// 		});
 
-		a.draw();
-		configSigmaElements(config);
-	}
+// 		a.draw();
+// 		configSigmaElements(config);
+// 	}
 
-    if (data.indexOf("gexf")>0 || data.indexOf("xml")>0)
-        a.parseGexf(data,dataReady);
-    else
-	    a.parseJson(data,dataReady);
-    gexf = sigmaInst = null;
-}
+//     if (data.indexOf("gexf")>0 || data.indexOf("xml")>0)
+//         a.parseGexf(data,dataReady);
+//     else
+// 	    a.parseJson(data,dataReady);
+//     gexf = sigmaInst = null;
+// }
 
 
 function setupGUI(config) {
@@ -198,7 +198,7 @@ function setupGUI(config) {
 	}
     $GP.cluster = new Cluster($GP.form.find("#attributeselect"));
     config.GP=$GP;
-    initSigma(config);
+    // initSigma(config);
 }
 
 function configSigmaElements(config) {
