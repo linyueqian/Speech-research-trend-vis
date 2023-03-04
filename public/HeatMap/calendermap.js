@@ -15,8 +15,8 @@ var globalData = [];
 // var color = d3.scale.category20()
 //     .domain([0, 1]);
 
-var color = d3.scale.linear().range(["#454342", 'pink'])
-    .domain([0, 8.91]);
+var color = d3.scale.linear().range(["white", 'red'])
+    .domain([0, 8.9]);
 
 // var color = scaleLinear()
 // .domain([ 0, 9 ])

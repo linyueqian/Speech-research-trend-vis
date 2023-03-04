@@ -19,7 +19,7 @@ body {
 }
 .month {
   fill: none;
-  stroke: #fff;
+  stroke: #0c010f;
   stroke-width: 1.5px;
 }
 rect.bordered {
@@ -114,7 +114,7 @@ text{
   color: aqua;
 }
 h1{
-  color: pink;
+  color: #a99c92;
   text-align: center;
 }
 select{
