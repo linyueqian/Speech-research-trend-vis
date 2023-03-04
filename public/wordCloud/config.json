@@ -1,11 +1,11 @@
 {
   "type": "network",
   "version": "1.0",
-  "data": "data.json",
+  "data": "",
   "logo": {
     "file": "",
     "link": "",
-    "text": "Yueqian"
+    "text": "yueqian"
   },
   "text": {
     "more": "The final visualization is a network graph representing academic collaborations between authors. The nodes of the graph represent authors and the edges represent collaborations between them. The size and color of the nodes and edges are based on the degree and modularity of the nodes, respectively. Modularity is used to group nodes into communities based on their connections to other nodes in the graph, while degree represents the number of connections a node has. The visualization is interactive, built using Sigma.js library, and can be explored in a web browser. The visualization enables users to analyze the structure of the academic collaboration network, identify key authors and communities, and gain insights into the relationships between them.",
