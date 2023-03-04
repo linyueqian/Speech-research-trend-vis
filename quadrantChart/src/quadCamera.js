@@ -83,8 +83,8 @@ function QuadCamera(x, y, z){
 		},
 		updateBaseZoom: function(viewPaper, dataSpace){
 			var a = Math.abs, dMax, dMin, tall = false;
-			var qw = viewPaper.width >> 1.1;
-			var qh = viewPaper.height >> 1.1;
+			var qw = viewPaper.width / 3;
+			var qh = viewPaper.height / 3;
 			var median = dataSpace.median();
 			var std = dataSpace.standardDeviation();
 

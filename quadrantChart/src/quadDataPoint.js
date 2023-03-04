@@ -136,7 +136,7 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 		y: point.NormY * paper.height
 	};
 
-	var element = paper.circle(point.X.toFixed(2), point.Y.toFixed(2), 2 / cam.baseZoom);
+	var element = paper.circle(point.X.toFixed(2), point.Y.toFixed(2), 1.5 / cam.baseZoom);
 
 	element.attr('fill', quadrants.colors.dataFill[quadIndex]).attr('stroke-width', 0)
 	element.click(focus);
