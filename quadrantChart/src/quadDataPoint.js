@@ -85,7 +85,7 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 
 			link.underline = info.peek();
 
-			info.push(paper.text(x + 2, y + 10, 'Paper Count: ' + Math.ceil(Math.exp(point.X)))
+			info.push(paper.text(x + 2, y + 10, 'Paper Count: ' + point.X_real)
 			             .attr('fill', '#fff')
              		     .attr('font-family', QUAD_FONT)
 			             .attr('text-anchor', 'start')
@@ -94,7 +94,7 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 			             .transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
 			);
 
-			info.push(paper.text(x + 2, y + 15, 'Citation Count: ' + Math.ceil(Math.exp(-point.Y)))
+			info.push(paper.text(x + 2, y + 15, 'Citation Count: ' + point.Y_real)
 			             .attr('fill', '#fff')
              		     .attr('font-family', QUAD_FONT)
 			             .attr('text-anchor', 'start')
