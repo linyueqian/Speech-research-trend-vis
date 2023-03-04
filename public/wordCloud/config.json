@@ -8,8 +8,8 @@
     "text": "yueqian"
   },
   "text": {
-    "intro": "The final visualization is an interactive network graph that shows academic collaborations between authors. Nodes represent authors and edges represent collaborations, with size and color reflecting weighted degree. The visualization is built using Sigma.js library and enables users to analyze the network structure, identify key authors and communities, and gain insights into their relationships.",
-    "title": "Wordcloud for Top250 most frequent words in abstract part of papers (2020-2023)"
+    "intro": "This is an interactive word cloud that shows the Top 250 common terms in abstract part of papers. Size of each words reflect the number accurance. Place the mouse over the words to see the detailed data. The visualization is built based on echarts-wordcloud-master library and enables users to analyze the network structure.",
+    "title": "Wordcloud for the Top 250 most frequent words in abstract part of papers (2020-2023)"
   },
   "legend": {
     "edgeLabel": "Co-author",
