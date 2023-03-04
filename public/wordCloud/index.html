@@ -60,6 +60,32 @@
       </div>
     </div>
   </div>
+  <script>$(document).ready(function () {
+    $('.trigger').click(function () {
+      $('.modal-wrapper').toggleClass('open');
+      $('.page-wrapper').toggleClass('blur');
+      const homeButton = document.querySelector('.btn-home');
+      const iframe = document.querySelector('#my-iframe');
+
+      homeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        iframe.src = homeButton.href;
+      });
+      // setTimeout(function () {
+      //   // Get the .content div
+      //   const contentDiv = document.querySelector('.content');
+
+      //   // Get the height of the .content div
+      //   const contentHeight = contentDiv.offsetHeight;
+
+      //   // Set the height of the iframe to match the height of the .content div
+      //   const iframe = document.querySelector('#my-iframe');
+      //   iframe.style.height = `${contentHeight}px`;
+      // }, 300);
+
+      return false;
+    });
+  });</script>
 </body>
 <script>
   window.onload = function() {
