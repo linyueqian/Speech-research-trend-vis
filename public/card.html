@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Css Div Image Hover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            font-family: 'Roboto';
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            background-color: #a79c93;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+        }
+
+        .box img {
+            display: block;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        a {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a p{
+            font-size: 16px;
+            font-weight: 400;
+            text-align: justify;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a class="box" href="network.html" target="_top">
+            <img src="images/net1.png" alt="network 1">
+            <h2 class="title">Network 1</h2>
+            <p>The co-occurrence network showing the collaboration among different authors.</p>
+        </a>
+        <a class="box" href="network.html" target="_top">
+            <img src="images/net1.png" alt="network 1">
+            <h2 class="title">Network 1</h2>
+        </a>
+
+    </div>
+</body>
+
+</html>
