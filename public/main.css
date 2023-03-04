@@ -201,93 +201,65 @@ i {
     }
 }
 
-.video-responsive {
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    height: 600px;
+    margin: 10px;
+}
+
+.grid-item {
+    border: 3px solid #bcb5ae;
+    border-radius: 10px;
     overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
-    background-color: #444;
+    text-align: center;
 }
 
-.video-responsive iframe,
-.video-responsive object,
-.video-responsive embed {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+.grid-item img {
+    max-width: 100%;
+    max-height: 100%;
 }
-
-
-/* RESPONSIVE LOADER */
-
-.box {
-    /* background-color: skyblue; */
-    background-color: #444;
-}
-
-.box span {
-    color: black;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.sixteen-nine {
-    position: relative;
-}
-
-.sixteen-nine:before {
+.grid-item a {
     display: block;
-    content: " ";
-    width: 100%;
-    padding-top: 56.25%;
-    /* Facebook image ratio 1.91:1 */
-    /* padding-top: 52.25%; */
-    /* example: 600 x 315 */
+    width: 428px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.grid-item h2 {
+    margin-top: 0;
+}
+.title {
+    text-align: center;
+    margin-top: 50px;
 }
 
-.sixteen-nine>.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.title h1 {
+    margin-top: -20px;
+    margin-bottom: 15px;
 }
 
-
-.loader {
-    border: 6px solid #ccc;
-    /*f3f3f3*/
-    border-radius: 50%;
-    border-top: 6px solid #3498db;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 1s linear infinite;
-    /* Safari */
-    animation: spin 1s linear infinite;
+h1{
+    color: #fefefe;
 }
 
-/* Safari */
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+h2{
+    color: #fefefe;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+.container {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+}
 
-    100% {
-        transform: rotate(360deg);
-    }
+iframe {
+    display: block;
+    width: 100vw;
+    height: 93vh; /* Set the height of the iframe to the height of the viewport */
 }
