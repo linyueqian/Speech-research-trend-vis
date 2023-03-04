@@ -8,15 +8,18 @@ body {
 .calender-map {
   font-size: 8px;
   font-family: Verdana;
-   shape-rendering: crispEdges;
+  shape-rendering: crispEdges;
+}
+.calender-map text {
+  fill: #fff;
 }
 .day {
-  stroke: #666;
+  stroke: #000;
   stroke-width: 1px;
 }
 .month {
   fill: none;
-  stroke: #000;
+  stroke: #fff;
   stroke-width: 1.5px;
 }
 rect.bordered {
@@ -34,7 +37,7 @@ text.legendElement {
 text.hover {
   font-weight: bold;
   fill: #66F;
-  font-background: #000;
+  font-background: #fff;
 }
 .heatmap_tooltip {
   text-align: center;
