@@ -18,10 +18,10 @@ function createBarChartRace(data, top_n, tickDuration) {
         top: 20,
         right: 80,
         bottom: 0,
-        left: 0
+        left: 30
     };
 
-    const marginTimeAxis = 30;
+    const marginTimeAxis = 0;
 
     let barPadding = (height - (margin.bottom + margin.top)) / (top_n * 5);
 
@@ -142,7 +142,7 @@ function createBarChartRace(data, top_n, tickDuration) {
 
     timeline_svg.append('rect')
         .attr('class', 'progressBar')
-        .attr('transform', `translate(${marginTimeAxis}, 20)`)
+        .attr('transform', `translate(${margin.left + marginTimeAxis}, 20)`)
         .attr('height', 2)
         .attr('width', 0);
 
