@@ -1,63 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
     background: #454342;
-    width:1150px;
+    max-width: 1150px;
 }
+
 h1 {
     font-size: 220%;
     text-align: center;
-    font-family: verdana;
-    color: #a99c92;
-    margin-top:0px;
+    font-family: 'Roboto';
+    color: #fff;
+    margin-top: 0px;
 }
+
 h2 {
     font-size: 130%;
-    font-family: verdana;
+    font-family: 'Roboto';
     text-align: center;
     color: black;
 }
 
 h3 {
     font-size: 130%;
-    font-family: verdana;
+    font-family: 'Roboto';
     text-align: center;
     color: gray;
     line-height: 100%;
 }
+
 h4 {
     font-size: 100%;
-    font-family: verdana;
+    font-family: 'Roboto';
     text-align: justify;
     color: black;
 }
+
 h5 {
     font-size: 100%;
-    font-family: verdana;
+    font-family: 'Roboto';
     text-align: center;
     color: black;
 }
+
 h6 {
     font-size: 100%;
-    font-family: verdana;
+    font-family: 'Roboto';
     text-align: center;
     color: gray;
-    margin-top:12px;
+    margin-top: 12px;
 }
+
 p {
-   font-family: verdana; 
-   font-size: 80%;
-   text-align: center;
+    font-family: 'Roboto';
+    font-size: 80%;
+    text-align: center;
 }
+
 #chart_placeholder {
     text-align: center;
-    float:right;
-    color:#fff;
+    float: right;
+    color: #fff;
     width: 750px;
     height: 830px;
 }
+
 .details {
-    float:right;
-    width:350px;
+    float: right;
+    width: 350px;
 }
+
 /*
 .dependencyWheel {
     font: 10px sans-serif;
@@ -66,22 +77,25 @@ p {
     fill: none;
     pointer-events: all;
 }
+
 path.chord {
     stroke: #000;
     stroke-width: .10px;
     transition: opacity 0.3s;
 }
- #circle:hover path.fade {
+
+#circle:hover path.fade {
     opacity: 0;
 }
 
 /*text is regions name only on chord diagram and scroll text*/
 text {
     fill: white;
-    font-family: Arial Narrow,Arial,sans-serif;
+    font-family: Arial Narrow, Arial, sans-serif;
     text-align: center;
     font-size: 14px;
 }
+
 svg {
     font-size: 10px;
     color: green;
@@ -89,82 +103,91 @@ svg {
     min-width: 100%;
 }
 
-.yearbuttons{/*area*/
+.yearbuttons {
+    /*area*/
     float: left;
     margin-right: 50px;
     width: 350px;
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
 }
 
-button{/*this are the year buttons*/
+button {
+    /*this are the year buttons*/
     background-color: black;
     color: white;
-    font-size : 22px;
-    font-family: Arial Narrow,Arial,sans-serif;
+    font-size: 22px;
+    font-family: Arial Narrow, Arial, sans-serif;
     border-color: black;
     border-radius: 2em;
     border-style: solid;
-    cursor:pointer;
-    
-}
-.current{
-    background-color: white;
-    color: black;
-    font-size : 22px;
-    font-family: Arial Narrow,Arial,sans-serif;
-    border-color: black;
-    border-radius: 2em;
-    
+    cursor: pointer;
 }
 
-#legend {/*regions*/
-    float:left;
+.current {
+    background-color: white;
+    color: black;
+    font-size: 22px;
+    font-family: Arial Narrow, Arial, sans-serif;
+    border-color: black;
+    border-radius: 2em;
+}
+
+#legend {
+    /*regions*/
+    float: left;
     font-size: 14px;
     width: 350px;
     display: flex;
     justify-content: center;
-} 
+}
+
 /*regions as well*/
-table.table1{
-        
-}    
+table.table1 {}
+
 /*countries*/
 table.table2 {
     position: absolute;
-    top:151px;
-    left:1100px;
+    top: 151px;
+    left: 1100px;
     white-space: nowrap;
     border-collapse: collapse;
     display: none;
 }
+
 table.table2 td {
-    font-family: verdana;
+    font-family: 'Roboto';
     font-size: 14px;
     float: left;
 }
+
 p {
-   font-family: verdana; 
-   font-size: 80%;
-   text-align: center;
+    font-family: 'Roboto';
+    font-size: 80%;
+    text-align: center;
 }
+
 .link {
     margin-left: 30px;
-    width:300px;
-    height:50px;
+    width: 300px;
+    height: 50px;
     float: left;
 }
+
 .scroll {
-    position:absolute; /*on top of vis*/
-    top:0;
-    left:0px;
+    position: absolute;
+    /*on top of vis*/
+    top: 0;
+    left: 0px;
 }
+
 .scroll2 {
-    float:left;
+    float: left;
 }
+
 /* unvisited link */
 a.one:link {
-    color:  #3CBCBC;
+    color: #3CBCBC;
     text-decoration: none;
 }
 
@@ -182,46 +205,51 @@ a.one:hover {
 a.one:active {
     color: #3CBCBC;
 }
+
 /*this are the links to the table not to other pages*/
 /* mouse over link */
-a.two:hover + table {
+a.two:hover+table {
     display: table;
     color: white;
 }
+
 /* unvisited link */
 a.two:link {
-    font-family: verdana;
+    font-family: 'Roboto';
     color: white;
     text-decoration: none;
 }
+
 /* visited link */
 a.two:visited {
-    font-family: verdana;
+    font-family: 'Roboto';
     color: white;
 }
+
 /* mouse over link */
 a.two:hover {
-    font-family: verdana;
+    font-family: 'Roboto';
     color: gray;
 }
+
 /* selected link */
 a.two:active {
-    font-family: verdana;
+    font-family: 'Roboto';
     color: white;
-}   
+}
 
 #maintitle {
     width: 100%;
     height: 72px;
     background-repeat: no-repeat;
     margin-bottom: 20px;
-   }
-   
-   #maintitle h1 {
+}
+
+#maintitle h1 {
     display: none;
-   }
-   
-   #mainpanel {
+}
+
+#mainpanel {
     margin-top: 50px;
     margin-left: 1200px;
     background: #fff;
@@ -231,29 +259,30 @@ a.two:active {
     z-index: 20;
     position: fixed;
     top: 0;
-   }
-   
-   #mainpanel .b1 {
+}
+
+#mainpanel .b1 {
     padding: 0px 0 0 0;
-   }
-   
-   #mainpanel .col {
+}
+
+#mainpanel .col {
     width: 240px;
     padding: 18px 18px 18px 18px;
     margin: 0;
-   
-   }
-   
-   #title {
+
+}
+
+#title {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-   }
-   
-   #titletext {
+}
+
+#titletext {
     padding: 6px 0 10px 0;
     font-family: 'Roboto', sans-serif;
-   }
-   #bold{
+}
+
+#bold {
     display: inline;
     font-weight: bold;
-   }
+}
