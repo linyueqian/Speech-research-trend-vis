@@ -1,10 +1,11 @@
 body {
-  font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif;
+  /* font-family:"Lucida Grande","Droid Sans",Arial,Helvetica,sans-serif; */
   background-color: #454342;
   border-style: solid;
   border-width: 1px;
   border-color: #454342;
 }
+
 .calender-map {
   font-size: 8px;
   font-family: Verdana;
@@ -109,6 +110,10 @@ div.tooltip {
   overflow:auto;
   color: #161265;
 }
+div.map-container{
+  margin-left: 150px;
+  margin-top: 25px;
+}
 text{
   cursor: pointer;
   color: aqua;
@@ -136,3 +141,46 @@ footer a{
   color: rgba(0,0,0,0.8);
   font-weight: 600;
 }
+
+#maintitle {
+  width: 100%;
+  height: 72px;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+ }
+ 
+ #maintitle h1 {
+  display: none;
+ }
+ 
+ #mainpanel {
+  margin-top: 100px;
+  margin-left: 100px;
+  background: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+ }
+ 
+ #mainpanel .b1 {
+  padding: 0px 0 0 0;
+ }
+ 
+ #mainpanel .col {
+  width: 240px;
+  padding: 18px 18px 18px 18px;
+  margin: 0;
+ 
+ }
+ 
+ #title {
+  font-weight: bold;
+ }
+ 
+ #titletext {
+  padding: 6px 0 10px 0;
+ }
+
