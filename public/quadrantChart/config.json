@@ -7,10 +7,6 @@
     "link": "",
     "text": "yueqian"
   },
-  "text": {
-    "intro": "This is an interactive word cloud that shows the Top 250 common terms in abstract part of papers. Size of each words reflect the number accurance. Place the mouse over the words to see the detailed data. The visualization is built based on echarts-wordcloud-master library.",
-    "title": "Wordcloud for the Top 250 most frequent words in abstract part of papers (2020-2023)"
-  },
   "legend": {
     "edgeLabel": "Co-author",
     "colorLabel": "Weight",
