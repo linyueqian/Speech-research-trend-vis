@@ -2,6 +2,9 @@
 <html>
 
 <head>
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' github.com">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   <script type="text/javascript" src="scripts/raphael.min.js"></script>
   <script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
@@ -81,9 +84,8 @@
       <div id="maintitle" style="margin-top: -100px;"></div>
       <div id="title"> Quadrant Chart for publication nubmer and ciation number of 4500 authors</div>
       <div id="titletext">This is an interactive quadrant chart that shows the relationship 
-        between publication number and citation number of 1st author for 4500 papers collected 
-        Size of each words reflect the number accurance. Click the dots to see detailed
-        data. The visualization is built based on the <a href="https://github.com/ecomfe/echarts-wordcloud">echarts-wordcloud-master</a>  library.</div>
+        between publication number and citation number of 1st author for 4500 papers collected. Click the dots to see detailed
+        data. The visualization is built based on the <a href ="https://github.com/OSTUSA/ScatterPlot" target="_blank" style="color: #a52a2a;">ScatterPlot</a>  library.</div>
     </div>
   </div>
 </body>
