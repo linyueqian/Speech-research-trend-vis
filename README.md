@@ -10,3 +10,6 @@ The codes are modified on the following projects:
 - [2] [Pop-up Window](https://codepen.io/clarirri/details/ExjEzRo)
 - [3] [Network](https://github.com/tdenzl/MarvelNetwork)
 - [4] [Individual Network](https://github.com/Xovee/canv)
+- [5] [Word Cloud](https://github.com/ecomfe/echarts-wordcloud)
+- [6] [Bar Chart Race](https://github.com/FabDevGit/barchartrace)
+- [7] [Quadrant Chart](https://github.com/OSTUSA/ScatterPlot)
