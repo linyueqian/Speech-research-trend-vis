@@ -22,16 +22,11 @@
   <script src="js/main.js" type="text/javascript" language="javascript"></script>
   <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" />
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-  <!-- <link rel="stylesheet" media="screen and (max-height: 770px)" href="css/tablet.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
-  <!-- <script defer src="js/wc.js"></script> -->
 
 </head>
 
 <body>
-  <!-- <div class="sigma-parent">
-          <div class="sigma-expand" id="sigma-canvas"></div>
-        </div> -->
   <div id="main"></div>
   <div id="mainpanel">
     <div class="col">
@@ -39,8 +34,10 @@
       <div id="title">Word Cloud for the Top 250 most frequent words in abstract part of papers (2020-2023)</div>
       <div id="titletext">This is an interactive word cloud that shows the Top 250 common terms in abstract part of
         papers. Size of each words reflect the number accurance. Place the mouse over the words to see the detailed
-        data. The visualization is built based on <a
-          href="https://github.com/ecomfe/echarts-wordcloud">echarts-wordcloud-master</a> library.</div>
+        data. The visualization is built based on
+        <a href="https://github.com/ecomfe/echarts-wordcloud">echarts-wordcloud-master</a>
+        library.
+      </div>
       <div class="info cf">
         <h2 style="color:brown;">⬇BAR CHART RACE showing the eight most common words over time.</h2>
         <div class="page-wrapper" style="margin-bottom: 70px;">
@@ -73,18 +70,6 @@
           event.preventDefault();
           iframe.src = homeButton.href;
         });
-        // setTimeout(function () {
-        //   // Get the .content div
-        //   const contentDiv = document.querySelector('.content');
-
-        //   // Get the height of the .content div
-        //   const contentHeight = contentDiv.offsetHeight;
-
-        //   // Set the height of the iframe to match the height of the .content div
-        //   const iframe = document.querySelector('#my-iframe');
-        //   iframe.style.height = `${contentHeight}px`;
-        // }, 300);
-
         return false;
       });
     });</script>
