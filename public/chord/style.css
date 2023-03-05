@@ -209,3 +209,51 @@ a.two:active {
     font-family: verdana;
     color: white;
 }   
+
+#maintitle {
+    width: 100%;
+    height: 72px;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+   }
+   
+   #maintitle h1 {
+    display: none;
+   }
+   
+   #mainpanel {
+    margin-top: 50px;
+    margin-left: 1200px;
+    background: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+   }
+   
+   #mainpanel .b1 {
+    padding: 0px 0 0 0;
+   }
+   
+   #mainpanel .col {
+    width: 240px;
+    padding: 18px 18px 18px 18px;
+    margin: 0;
+   
+   }
+   
+   #title {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+   }
+   
+   #titletext {
+    padding: 6px 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+   }
+   #bold{
+    display: inline;
+    font-weight: bold;
+   }
