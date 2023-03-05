@@ -35,8 +35,11 @@
   <div id="mainpanel">
     <div class="col">
       <div id="maintitle" style="margin-top: -100px;"></div>
-      <div id="title">Word Cloud for the Top 250 most frequent words in abstract part of papers (2020-2023)</div>
-      <div id="titletext">This is an interactive word cloud that shows the Top 250 common terms in the abstract part of papers. The size of each word reflects the number of occurrences. Hover over the words to see the detailed data.
+      <div id="title" style="color: brown;">Word Cloud for the Top 250 most frequent words in abstract part of papers
+        (2020-2023)</div>
+      <div id="titletext" style="text-align: justify;">This is an interactive word cloud that shows the Top 250 common
+        terms in the abstract part of papers. The size of each word reflects the number of occurrences. Hover over the
+        words to see the detailed data.
         The word cloud is built based on
         <a href="https://github.com/ecomfe/echarts-wordcloud" target="_blank"
           style="color: #a52a2a;">echarts-wordcloud-master</a>
@@ -45,13 +48,12 @@
         library.
       </div>
       <div class="info cf">
-        <div id="title"><span style="color:brown;">⬇Bar Chart Race</span> showing the eight most common words over time.
+        <div id="title" style="text-align: justify;"><span style="color:brown;">⬇Bar Chart Race</span> showing the eight most common words over time.
         </div>
         <div class="page-wrapper" style="margin-bottom: 70px;">
           <a class="btn trigger" href="javascript:;">Explore</a>
         </div>
-        <div id="title"><span style="color:brown;">NOTE:</span> please refresh the page if the word cloud does not show
-          up.</div>
+        <div id="title" style="text-align: justify;"><span style="color:brown;">NOTE:</span> If the word cloud does not show up due to heavy data loading at the front-end, please refresh the page.</div>
       </div>
     </div>
   </div>
@@ -62,7 +64,7 @@
         <a class="btn-close trigger" href="javascript:;"></a>
       </div>
       <div class="content">
-        <iframe id="my-iframe" src="./abstractBarChartRace.html" width="100%" height = "100%" frameborder="0"
+        <iframe id="my-iframe" src="./abstractBarChartRace.html" width="100%" height="100%" frameborder="0"
           scrolling="no" zooming="no"></iframe>
       </div>
     </div>

@@ -89,8 +89,12 @@
             setTimeout(function () { test(); });
         });
         window.addEventListener('load', function () {
-            var iframe = document.getElementById('iframe');
-            iframe.contentWindow.location.reload(true);
+            // sleep three seconds
+            setTimeout(function () {
+                var iframe = document.getElementById('iframe');
+                iframe.contentWindow.location.reload(true);
+            }, 3000);
+
         });
 
     </script>
