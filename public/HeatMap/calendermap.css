@@ -147,10 +147,12 @@ footer a{
   height: 72px;
   background-repeat: no-repeat;
   margin-bottom: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
  }
  
  #maintitle h1 {
   display: none;
+  font-family: 'Roboto Condensed'
  }
  
  #mainpanel {
@@ -163,6 +165,9 @@ footer a{
   z-index: 20;
   position: fixed;
   top: 0;
+  font-family: 'Roboto Condensed';
+  font-size: 15px;
+	font-weight: bold;
  }
  
  #mainpanel .b1 {
@@ -178,6 +183,7 @@ footer a{
  
  #title {
   font-weight: bold;
+  font-size: 16px;
  }
  
  #titletext {
