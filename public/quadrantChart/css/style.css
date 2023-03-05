@@ -254,8 +254,10 @@ canvas#sigma_bg_1 {
 
 }
 
-#title {
+#title h2{
 	font-weight: bold;
+	font-size: 16px;
+	font-family: 'Roboto Condensed';
 }
 
 #titletext {
@@ -386,70 +388,55 @@ canvas#sigma_bg_1 {
 	padding-top: 1em;
 }
 
-#mainpanel dl {
-	padding-bottom: 10px;
-}
-
-#mainpanel h2 {
-	font-size: 16px;
+#maintitle {
+	width: 100%;
+	height: 72px;
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+   }
+   
+   #maintitle h1 {
+	display: none;
+	font-family: 'Roboto Condensed'
+   }
+   
+   #mainpanel {
+	margin-top: 100px;
+	margin-left: 20px;
+	background: #fff;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	z-index: 20;
+	position: fixed;
+	top: 0;
+	font-family: 'Roboto Condensed';
+	font-size: 15px;
+	  font-weight: bold;
+   }
+   
+   #mainpanel .b1 {
+	padding: 0px 0 0 0;
+   }
+   
+   #mainpanel .col {
+	width: 240px;
+	padding: 18px 18px 18px 18px;
+	margin: 0;
+   
+   }
+   
+   #title {
 	font-weight: bold;
-}
-
-#mainpanel dt {
-	width: 20px;
-	height: 20px;
-	float: left;
-	background-repeat: no-repeat;
-	background-image: url('../images/sprite.png');
-}
-
-#legend dl {}
-
-#mainpanel h2 {
-	padding-bottom: 10px;
-}
-
-#legend dd {
-	margin-bottom: 8px;
-	color: #454342;
-}
-
-#mainpanel .infos dd {
-	margin-bottom: 12px;
-}
-
-#mainpanel .node {
-	background-position: -11px -119px;
-}
-
-#mainpanel .edge {
-	background-position: -51px -122px;
-}
-
-#mainpanel .colours {
-
-	background-image: url('../images/rainbow.png');
-
-}
-
-#legend .note {
-	margin-bottom: 8px;
-
-}
-
-#mainpanel .regions {
-	background-position: -171px -13px;
-}
-
-#mainpanel .download {
-	background-position: -51px -13px;
-}
-
-#mainpanel .moreinformation {
-	background: url('../images/info.png');
-	background-repeat: no-repeat;
-	margin-left: 5px;
-}
+	font-size: 16px;
+   }
+   
+   #titletext {
+	padding: 6px 0 10px 0;
+   }
+  
+  
 
 #copyright {
 	margin: 0 auto;
@@ -509,75 +496,6 @@ canvas#sigma_bg_1 {
 #zoom .z[rel=out] {
 	background-image: url('../images/zoom_out.png');
 	background-position: center;
-}
-
-.line {
-	font-size: 12px;
-	color: #454342;
-	text-decoration: none;
-	font-weight: bold;
-	cursor: pointer;
-	cursor: hand;
-}
-
-#information {
-	display: none;
-	background: #fff;
-	padding: 1px 10px 10px 10px;
-}
-
-#information h3 {
-	margin: 14px 0 4px 0;
-}
-
-#information p {
-	margin: 0 0 4px 0;
-}
-
-#information .button {
-	width: 14px;
-	height: 14px;
-	background-image: url('../images/sprite.png');
-	border: 1px solid #999;
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-}
-
-#information .button span {
-	display: none;
-}
-
-#information .button.plus {
-	background-position: -91px -122px;
-}
-
-#information .button.moins {
-	background-position: -131px -122px;
-}
-
-#minify {
-	background-color: #fff;
-	padding: 4px 4px 4px 25px;
-	cursor: pointer;
-	background-image: url('../images/sprite.png');
-	background-repeat: no-repeat;
-	background-position: -167px -118px;
-	position: absolute;
-	top: 65px;
-	left: 15px;
-	display: none;
-}
-
-#minifier {
-	position: absolute;
-	width: 20px;
-	height: 16px;
-	background-image: url('../images/sprite.png');
-	background-repeat: no-repeat;
-	background-position: -45px -147px;
-	cursor: pointer;
-	display: none;
 }
 
 select {
@@ -742,15 +660,16 @@ a.btn {
 .chart-container {
   position: relative;
   padding: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
   width: 50%;
   top: 5%;
-  height: 700px;
+  height: 650px;
   margin: 0 auto;
 }
 
 #quadChart {
-  position: absolute;
+  position: relative;
   top: 10%;
   left: 10%;
   width: 80%;
