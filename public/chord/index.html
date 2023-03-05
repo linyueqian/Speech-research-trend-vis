@@ -6,73 +6,81 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 </head>
 
 <body>
     <div id="mainpanel">
-        <div class="col">
+        <div class="col" style="font-family: 'Roboto Condensed';">
             <div id="maintitle" style="margin-top: -100px;"></div>
-            <div id="title"> Chord diagram</div>
-            <div id="titletext">This is an interactive chord diagram that shows the interdiscipline correlations between
+            <div id="title">
+                <h2
+                    style="font-weight: bold; font-size: 16px; color: brown; text-align: left; font-family: 'Roboto Condensed'; ">
+                    Chord Diagram</h2>
+            </div>
+            <div id="titletext"
+                style="font-weight: regular; font-size: 16px; text-align: justify; font-family: 'Roboto Condensed'; margin-top: -10px;">
+                This is an interactive chord diagram that shows the interdiscipline correlations between
                 different fields of the academic papers
                 related to "speech" in the past three years. We ignored the papers that is mono-field study, since they
                 have no relationship with interdisciplinary studies.
                 The color of the ribbons depends on the number of major fields in the interdisciplinary course. If A
                 mainly acts as major field in interdisciplinary studies
-                of A and B, then the color of the ribbon will be A's color. <br>
+                of A and B, then the color of the ribbon will be A's color. <br><br>
                 By <div id="bold">clicking on different years</div>, we can see the changes in the components of
                 interdisciplinary fields. By <div id="bold">hovering on the ribbons or the arcs</div>, we can see the
                 number of papers in the field.
             </div>
         </div>
     </div>
-    <div class="details">
-        <h1>Interdiscipline Correlations</h1>
+    <div class="container">
+        <div class="details">
+            <h1  style="margin-top: -10px;">Interdiscipline Correlations</h1>
 
-        <div id="yearbuttons" class="yearbuttons">
-            <button id="foursix" class="current">2020</button>
-            <button id="sevennine" class="">2021</button>
-            <button id="tentwelve" class="">2022</button>
-            <button id="thirteenfiveteen" class="">2023</button>
-        </div>
-        <!--This script is to highlight each year button while on it-->
-        <script type="text/javascript">
-            $('#yearbuttons button').on('click', function () {
-                $('button.current').removeClass('current');
-                $(this).addClass('current');
-            });
-        </script>
+            <div id="yearbuttons" class="yearbuttons">
+                <button id="foursix" class="current">2020</button>
+                <button id="sevennine" class="">2021</button>
+                <button id="tentwelve" class="">2022</button>
+                <button id="thirteenfiveteen" class="">2023</button>
+            </div>
+            <!--This script is to highlight each year button while on it-->
+            <script type="text/javascript">
+                $('#yearbuttons button').on('click', function () {
+                    $('button.current').removeClass('current');
+                    $(this).addClass('current');
+                });
+            </script>
 
 
-        <div id="legend">
+            <div id="legend">
 
-            <table class="table1">
-                <tr>
-                    <td bgcolor="#454342" width="10%">
-                    </td>
-                    <td width="90%">
-                        <h3>Regions</h3>
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#eddcd2" width="10%">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Computer Science</a>
+                <table class="table1">
+                    <tr>
+                        <td bgcolor="#454342" width="10%">
+                        </td>
+                        <td width="90%">
+                            <h3>Regions</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#eddcd2" width="10%">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Computer Science</a>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#f8ad9d">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Medicine</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f8ad9d">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Medicine</a>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#FBC4AB">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Chemistry</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FBC4AB">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Chemistry</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -80,13 +88,13 @@
                                 <td>Faroe Islands</br>Iceland</br>Norway</br>Switzerland</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#f08080">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Biology</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f08080">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Biology</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -94,13 +102,13 @@
                                 <td>Australia </br>New Zeland</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#fde2e4">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Materials Science</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#fde2e4">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Materials Science</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -108,13 +116,13 @@
                                 <td>Israel</br>Japan</br>South Africa</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffffff">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Physics</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Physics</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -122,13 +130,13 @@
                                 <td>Albania</br>Bosnia</br>Croatia</br>Serbia-Monte</br>TFYROM</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#fad2e1">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Geology</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#fad2e1">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Geology</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -136,13 +144,13 @@
  <td>Belarus</br>Moldova</br>Russian</br>Ukraine</br>Armenia</br>Azerbaijan</br>Georgia</br>Kazakhstan</br>Kyrgyzstan</br>Tajikistan</br>Turkmenistan</br>Uzbekistan</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#fbc4ab">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Psychology</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#fbc4ab">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Psychology</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -150,14 +158,14 @@
                                 <td>Algeria</br>Morocco</br>Tunisia</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#c5dedd">
-                    </td>
-                    </td>
-                    <td><a class="two" id="NA" href="#">Art</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#c5dedd">
+                        </td>
+                        </td>
+                        <td><a class="two" id="NA" href="#">Art</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -165,13 +173,13 @@
                                 <td>Benin</br>Burkina</br>Cape Verde</br>Cote dIvoire</br>Gambia</br>Ghana</br>Guinea</br>Guinea Bissau</br>Liberia</br>Mali</br>Mauritania</br>Niger</br>Nigeria</br>Senegal</br>Sierra</br>Togo</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#dbe7e4">
-                    </td>
-                    <td><a class="two" id="NA" href="#">History</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#dbe7e4">
+                        </td>
+                        <td><a class="two" id="NA" href="#">History</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -179,13 +187,13 @@
                                 <td>Angola</br>Cameroon</br>Centr Afr Rep</br>Chad</br>Congo D Rep</br>Congo Rep</br>Eq Guinea</br>Gabon</br>Sao Tome</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffdab9">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Geography</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffdab9">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Geography</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -193,13 +201,13 @@
                                 <td>Burundi</br>Comoros</br>Djibouti</br>Eritrea</br>Ethiopia</br>Kenya</br>Madagascar</br>Malawi</br>Mauritius</br>Mozambique</br>Reunion</br>Rwanda</br>Seychelles</br>Somalia</br>Tanzania</br>Uganda</br>Zambia</br>Zimbabwe</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#9d8189">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Sociology</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#9d8189">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Sociology</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -207,13 +215,13 @@
                                 <td>Botswana</br>Lesotho</br>Namibia</br>St Helena</br>Swaziland</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#f0efeb">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Business</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f0efeb">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Business</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -221,13 +229,13 @@
                                 <td>Bermuda</br>Greenland</br>St Pier Mq</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#d6e2e9">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Political Science</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#d6e2e9">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Political Science</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -235,13 +243,13 @@
                                 <td>Belize</br>Costa Rica</br>El Salvador</br>Guatemala</br>Honduras</br>Mexico</br>Nicaragua</br>Panama</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#bcd4e6">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Economics</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#bcd4e6">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Economics</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -249,13 +257,13 @@
                                 <td>Anguilla</br>Ant Barbados</br>Aruba</br>Bahamas</br>Barbados</br>Br Virgin Is</br>Cayman Is</br>Cuba</br>Dominica</br>Dominican Rp</br>Grenada</br>Guadeloupe</br>Haiti</br>Jamaica</br>Martinique</br>Montserrat</br>NethAntilles</br>Puerto Rico</br>St Kitts</br>St Lucia</br>St Vincent</br>Trinidad and T</br>Truks Caicos</br>US Virgin</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#99c1de">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Philosophy</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#99c1de">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Philosophy</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -263,13 +271,13 @@
                                 <td>Argentina</br>Bolivia</br>Brazil</br>Chile</br>Colombia</br>Ecuador</br>Falkland</br>Fr Guiana</br>Guyana</br>Paraguay</br>Peru</br>Suriname</br>Uruguay</br>Venezuela</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#f4978e">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Mathematics</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f4978e">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Mathematics</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -277,13 +285,13 @@
                                 <td>Egypt</br>Libya</br>Sudan</br>Afghanistan</br>Bahrain</br>Iran</br>Iraq</br>Jordan</br>Kuwait</br>Lebanon</br>Oman</br>Palestine</br>Qatar</br>Saudi Arabia</br>Syria</br>Turkey</br>Un Arab Emirates</br>Yemen</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#81171b">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Engineering</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#81171b">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Engineering</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -291,13 +299,13 @@
                                 <td>Bangladesh</br>Bhutan</br>India</br>Maldives</br>Nepal</br>Pakistan</br>Sri Lanka</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#98817B">
-                    </td>
-                    <td><a class="two" id="NA" href="#">Environmental Science</a>
-                        <!-- <table class="table2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#98817B">
+                        </td>
+                        <td><a class="two" id="NA" href="#">Environmental Science</a>
+                            <!-- <table class="table2">
                             <tr>
                                 <td><h3>Countries</h3></td>
                             </tr>
@@ -305,9 +313,9 @@
                                 <td>Brunei Darsm</br>Cambodia</br>Indonesia</br>Korea D</br>Korea R</br>Laos</br>Malaysia</br>Mongolia</br>Myanmar</br>Philippines</br>Singapore</br>Thailand</br>Viet Nam</td>
                             </tr>
                         </table> -->
-                    </td>
-                </tr>
-                <!-- <tr>
+                        </td>
+                    </tr>
+                    <!-- <tr>
           <td bgcolor="#FF3030">
                     </td>
                     <td><a class="two" id="NA" href = "#">China</a>
@@ -335,9 +343,9 @@
                         </table>
                      </td>  
                 </tr> -->
-            </table>
+                </table>
+            </div>
         </div>
-
     </div>
 
     <div id="chart_placeholder"></div>

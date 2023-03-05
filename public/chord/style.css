@@ -57,15 +57,17 @@ p {
 }
 
 #chart_placeholder {
-    text-align: center;
-    float: right;
-    color: #fff;
-    width: 750px;
-    height: 830px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .details {
-    float: right;
+    position: absolute;
+    left: calc(50% + 500px);
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 350px;
 }
 
@@ -251,7 +253,7 @@ a.two:active {
 
 #mainpanel {
     margin-top: 50px;
-    margin-left: 1200px;
+    margin-left: 20px;
     background: #fff;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #ccc;
@@ -286,3 +288,5 @@ a.two:active {
     display: inline;
     font-weight: bold;
 }
+
+  
