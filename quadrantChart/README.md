@@ -1,11 +1,11 @@
-# Bar Chart Race
+# Quadrant Chart
 ### Author: [Xingyu Shen](mailto:xs90@duke.edu)
 
-This folder conatains a script that allows for converting a CSV to a Bar Chart Race.
+This folder conatains files that allows for converting a CSV to a quadrant chart.
 
 ## Folder Structure
 | Folder/Code | Content |
 | ------------- | ------------- |
-| data | Contains the data and the ipynb file used for data cleaning and filtering |
-| scripts | Contains the package scripts |
-| src | Contains the js files to genrate  |
+| data | Contains the data and the ipynb file used for data cleaning and filtering. |
+| scripts | Contains the package scripts and a compact version of the source js files (I imported the source code to my html file separatedly for debugging). |
+| src | Contains the js files to genrate the quadrant chart. |
