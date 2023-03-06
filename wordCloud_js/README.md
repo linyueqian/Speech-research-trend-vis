@@ -1,5 +1,5 @@
 # Word Cloud (js)
-### Author: [Yueqian Lin](mailto:yl768@duke.edu)
+### Author: [Xingyu Shen](mailto:xs90@duke.edu)
 
 This folder conatains a script to convert the csv file to a word cloud.
 
