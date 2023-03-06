@@ -1,55 +1,55 @@
-function ll(){
-  this.last = this.first = null;
+function ll() {
+	this.last = this.first = null;
 
-  var remove = function(){
-    var t = this, l = t.list;
-    l.first = (t == l.first ? t.next : l.first);
-    l.last  = (t == l.last  ? t.prev : l.last);
-    if(t.prev) t.prev.next = t.next;
-    if(t.next) t.next.prev = t.prev;
-    return t.value;
-  };
-  
-  this.add = function(value){
-    node = {list: this, value: value, next: null, prev: this.last, remove: remove};
-    this.first = this.first ? this.first : node;
-    if(this.last) this.last.next = node;
-    this.last = node;
-    return node;
-  };
-  
-  this.remove = function(node){ node.remove; };
-  
-  return this;
+	var remove = function () {
+		var t = this, l = t.list;
+		l.first = (t == l.first ? t.next : l.first);
+		l.last = (t == l.last ? t.prev : l.last);
+		if (t.prev) t.prev.next = t.next;
+		if (t.next) t.next.prev = t.prev;
+		return t.value;
+	};
+
+	this.add = function (value) {
+		node = { list: this, value: value, next: null, prev: this.last, remove: remove };
+		this.first = this.first ? this.first : node;
+		if (this.last) this.last.next = node;
+		this.last = node;
+		return node;
+	};
+
+	this.remove = function (node) { node.remove; };
+
+	return this;
 }
 //     ___ _     _          _   _        _                  
 //    / __| |___| |__  __ _| | | |_  ___| |_ __  ___ _ _ ___
 //   | (_ | / _ \ '_ \/ _` | | | ' \/ -_) | '_ \/ -_) '_(_-<
 //    \___|_\___/_.__/\__,_|_| |_||_\___|_| .__/\___|_| /__/
 //                                        |_|               
-var rot2d = function(theta, size){
+var rot2d = function (theta, size) {
 	// construct a result matrix
 	var r = new Array(size);
-	for(var i = size; i--; ){
+	for (var i = size; i--;) {
 		r[i] = Array
 			.apply(null, new Array(r.length))
-			.map(Number.prototype.valueOf,0);
+			.map(Number.prototype.valueOf, 0);
 	}
 
 	var c = Math.cos(theta), s = Math.sin(theta);
 
 	r[0][0] = c; r[1][0] = -s;
-	r[0][1] = s; r[1][1] =  c;
+	r[0][1] = s; r[1][1] = c;
 	r[2][2] = 1;
 
 	return r;
 };
 //-----------------------------------------------------------------------------
-var I = function(size){
+var I = function (size) {
 	var out = new Array(size);
-	for(var i = size; i--;){
+	for (var i = size; i--;) {
 		out[i] = [];
-		for(var j = 0; j < size; j++)
+		for (var j = 0; j < size; j++)
 			out[i].push(j == i ? 1 : 0);
 	}
 
@@ -61,41 +61,41 @@ var I = function(size){
 //   | |\/| / -_)  _| ' \/ _ \/ _` (_-<
 //   |_|  |_\___|\__|_||_\___/\__,_/__/
 //                                     
-([]).__proto__.X = function(m){
+([]).__proto__.X = function (m) {
 	// make sure m's row matches this's column length
-	if(!(m[0] && m[0].length == this.length)) return null;
-	
+	if (!(m[0] && m[0].length == this.length)) return null;
+
 	// construct a result matrix
 	var r = new Array(m.length);
-	for(var i = r.length; i--; r[i] = new Array(this.length));
+	for (var i = r.length; i--; r[i] = new Array(this.length));
 
 	// multiply
-	for(var i = 0; i < r.length; i++){
-		for(var j = 0; j < r[0].length; j++){
+	for (var i = 0; i < r.length; i++) {
+		for (var j = 0; j < r[0].length; j++) {
 			r[i][j] = 0;
-			for(var k = 0; k < r[0].length; r[i][j] += this[k][j] * m[i][k++]);
+			for (var k = 0; k < r[0].length; r[i][j] += this[k][j] * m[i][k++]);
 		}
 	}
 
 	return r;
 };
 //-----------------------------------------------------------------------------
-([]).__proto__.translate = function(position){
-	for(var i = 0; i < position.length; i++)
+([]).__proto__.translate = function (position) {
+	for (var i = 0; i < position.length; i++)
 		this[this.length - 1][i] = position[i];
 	return this;
 };
 //-----------------------------------------------------------------------------
-([]).__proto__.serialize = function(args){
+([]).__proto__.serialize = function (args) {
 	var str = '';
-	if(typeof(args) == 'string'){
-		switch(args){
+	if (typeof (args) == 'string') {
+		switch (args) {
 			case 'svg':
 				str = 'M';
-				for(var i = 0; i < this.length; i++){
+				for (var i = 0; i < this.length; i++) {
 					var col = this[i], len = col.length > 2 ? 2 : col.length;
-					for(var j = 0; j < len;)
-						 str += col[j].toFixed(3) + (j++ == len - 1 ? '' : ',');
+					for (var j = 0; j < len;)
+						str += col[j].toFixed(3) + (j++ == len - 1 ? '' : ',');
 					str += (i == this.length - 1 ? '' : ',');
 				}
 				break;
@@ -105,25 +105,25 @@ var I = function(size){
 };
 var QuadAnim = {
 	_anims: [],
-	setInterval: function(callback, frequency){
+	setInterval: function (callback, frequency) {
 		var out = -1;
 		this._anims.push(out = setInterval(callback, frequency));
 		return out;
 	},
-	clearInterval: function(id){
+	clearInterval: function (id) {
 		this._anims.splice(this._anims.indexOf(id), 1);
 		clearInterval(id);
 	},
-	clearAll: function(){
-		while(this._anims.length){
+	clearAll: function () {
+		while (this._anims.length) {
 			clearInterval(this._anims.pop());
 		}
 	},
-	animateUntil: function(callback, conditionFunc){
+	animateUntil: function (callback, conditionFunc) {
 		var t = this;
-		var id = t.setInterval(function(){
+		var id = t.setInterval(function () {
 			callback();
-			if(conditionFunc()){
+			if (conditionFunc()) {
 				t._anims.splice(t._anims.indexOf(id), 1);
 				clearInterval(id);
 				return;
@@ -133,36 +133,36 @@ var QuadAnim = {
 		return id;
 	}
 };
-var QuadAxes = function(id, config, dataSpace, cam){
-//   __   __        _      _    _        
-//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
-//    \ V / _` | '_| / _` | '_ \ / -_|_-<
-//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
-//                                       
+var QuadAxes = function (id, config, dataSpace, cam) {
+	//   __   __        _      _    _        
+	//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
+	//    \ V / _` | '_| / _` | '_ \ / -_|_-<
+	//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
+	//                                       
 	var parentEle = document.getElementById(id);
 
-	if(!parentEle)
+	if (!parentEle)
 		throw new UserException('Element "' + id + '" could not be located');
 
-//-----------------------------------------------------------------------------
-//    ___     _          _          __              _   _             
-//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                            
-	var parentHeight = function(){ return parentEle.clientHeight; };
-//-----------------------------------------------------------------------------
-	var parentWidth = function(){ return parentEle.clientHeight; };
-//-----------------------------------------------------------------------------
-	var viewWidth = function(){
+	//-----------------------------------------------------------------------------
+	//    ___     _          _          __              _   _             
+	//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                            
+	var parentHeight = function () { return parentEle.clientHeight; };
+	//-----------------------------------------------------------------------------
+	var parentWidth = function () { return parentEle.clientHeight; };
+	//-----------------------------------------------------------------------------
+	var viewWidth = function () {
 		return parentEle.clientWidth - 280;
 	}
-//-----------------------------------------------------------------------------
-	var viewHeight = function(){
+	//-----------------------------------------------------------------------------
+	var viewHeight = function () {
 		return parentEle.clientHeight - 120;
 	}
-//-----------------------------------------------------------------------------
-	var calcDimensions = function(axis){
+	//-----------------------------------------------------------------------------
+	var calcDimensions = function (axis) {
 		var dimensions = {
 			top: 0,
 			left: 60,
@@ -171,11 +171,11 @@ var QuadAxes = function(id, config, dataSpace, cam){
 		}
 
 		// determine bounds, and dimensions
-		switch(axis){
+		switch (axis) {
 			case 'x':
 				dimensions.height = 60;
 				dimensions.left += 60;
-				dimensions.top  += parentHeight() - 116;
+				dimensions.top += parentHeight() - 116;
 				break;
 			case 'y':
 				dimensions.width = 60;
@@ -184,10 +184,10 @@ var QuadAxes = function(id, config, dataSpace, cam){
 
 		return dimensions;
 	};
-//-----------------------------------------------------------------------------
-	var resizeAxisElement = function(paper, dimensions){
+	//-----------------------------------------------------------------------------
+	var resizeAxisElement = function (paper, dimensions) {
 		// set styles needed for 
-		with(paper.canvas.style){
+		with (paper.canvas.style) {
 			position = 'absolute';
 			zIndex = 1000;
 			top = dimensions.top + 'px'; left = dimensions.left + 'px';
@@ -195,8 +195,8 @@ var QuadAxes = function(id, config, dataSpace, cam){
 
 		paper.setSize(dimensions.width, dimensions.height);
 	};
-//-----------------------------------------------------------------------------
-	var renderScale = function(paper, tall){
+	//-----------------------------------------------------------------------------
+	var renderScale = function (paper, tall) {
 		var vb = paper.canvas.viewBox.baseVal;
 		var scale = '';
 		var ticks = [];
@@ -207,22 +207,22 @@ var QuadAxes = function(id, config, dataSpace, cam){
 		var steps = tall ? config.axes.y.tickInterval : config.axes.x.tickInterval
 		var interval = delta / steps;
 
-		if(delta != 0)
-		for(var i = steps; i--;){
-			var p = ((min + i * interval) - 2).toFixed(2);
+		if (delta != 0)
+			for (var i = steps; i--;) {
+				var p = ((min + i * interval) - 2).toFixed(2);
 
-			if(p < min || p >= max + interval) continue;
+				if (p < min || p >= max + interval) continue;
 
-			if(tall){
-				scale += 'M40,' + p;
-				scale += 'l15,0';				
+				if (tall) {
+					scale += 'M40,' + p;
+					scale += 'l15,0';
+				}
+				else {
+					scale += 'M' + p + ',5';
+					scale += 'l0,15';
+				}
+
 			}
-			else{
-				scale += 'M' + p + ',5';
-				scale += 'l0,15';
-			}
-
-		}
 		ticks.scalePath = paper.path(scale).attr('stroke', config.axes.colors.tick); // finally, draw the ticks
 		ticks.interval = interval;
 		ticks.min = min;
@@ -233,21 +233,21 @@ var QuadAxes = function(id, config, dataSpace, cam){
 		// provides a method to clean up existing scale
 		// so that the scale and text can be redrawn for new
 		// bounds on this axis.
-		ticks.remove = function(){
+		ticks.remove = function () {
 			paper.clear();
 		}
 
 		return ticks;
 	}
-//-----------------------------------------------------------------------------
-	var createAxis = function(axis){
+	//-----------------------------------------------------------------------------
+	var createAxis = function (axis) {
 		// todo, set up vars that are shared between axes
 		var dimensions = calcDimensions(axis);
 		var min, max, dx = 0, dy = 0;
 		var drawnLabels = [];
 
 		// determine bounds, and dimensions
-		switch(axis){
+		switch (axis) {
 			case 'x':
 				max = dataSpace.x.max();
 				min = dataSpace.x.min();
@@ -268,12 +268,12 @@ var QuadAxes = function(id, config, dataSpace, cam){
 			paper: paper,
 			dimensions: dimensions,
 			scale: renderScale(paper, dx < dy),
-			resize: function(){
+			resize: function () {
 				resizeAxisElement(paper, calcDimensions(axis));
 			}
 		};
 
-		var redrawLabelsScaleTicks = function(){
+		var redrawLabelsScaleTicks = function () {
 			var scale = out.scale;
 			var lineWidth = 3 / cam.zoom;
 			var cos = Math.cos, sin = Math.sin;
@@ -287,10 +287,10 @@ var QuadAxes = function(id, config, dataSpace, cam){
 			scaleMatrix = [
 				[ts, 0, 0,],
 				[0, ts, 0],
-				[0,  0, 1]
+				[0, 0, 1]
 			];
 
-			switch(axis){
+			switch (axis) {
 				case 'x':
 					paperZoom.off = (-(paper.width >> 1) / cam.zoom) - cam.offset.x;
 					paperZoom.delta = paper.width / cam.zoom;
@@ -304,36 +304,36 @@ var QuadAxes = function(id, config, dataSpace, cam){
 
 			var vb = paper.canvas.viewBox.baseVal;
 			var labels = out.scale.steps;
-			var unit = tall ? '$' : '%';
+			var unit = tall ? '' : '';
 			var min = tall ? vb.y : vb.x;
 			var max = min + (tall ? vb.height : vb.width);
 
 			// blow away drawn labels
-			while(drawnLabels.length) drawnLabels.pop().remove();
-			if(labels < 20)
-			for (var i = labels + 1; i--;) {
-				var r = 0, x = 30, y = 30, p = ((min + i * interval) - 2);
-				var frac = i / labels;
+			while (drawnLabels.length) drawnLabels.pop().remove();
+			if (labels < 20)
+				for (var i = labels + 1; i--;) {
+					var r = 0, x = 30, y = 30, p = ((min + i * interval) - 2);
+					var frac = i / labels;
 
-				if(!tall){
-					r = -Math.PI / 8;
-					x = p;
+					if (!tall) {
+						r = -Math.PI / 8;
+						x = p;
+					}
+					else {
+						y = p;
+					}
+
+					if (out.scale.min > p || out.scale.max - interval < p) continue;
+					var m = scaleMatrix.X(rot2d(r, 3)).translate([x, y]).serialize('svg');
+					drawnLabels.push(
+						paper.text(0, 0, (tall ? unit : '') + Math.ceil(frac * paperZoom.delta + paperZoom.off) + (!tall ? unit : ''))
+							.attr('font-family', QUAD_FONT)
+							.attr('font-weight', 'bold')
+							.attr('text-anchor', 'end')
+							.attr('fill', config.axes.colors.text)
+							.transform(m)
+					);
 				}
-				else{
-					y = p;
-				}
-					
-				if(out.scale.min > p || out.scale.max - interval < p) continue;
-				var m = scaleMatrix.X(rot2d(r, 3)).translate([x, y]).serialize('svg');
-				drawnLabels.push(
-					paper.text(0, 0, (tall ? unit : '') + Math.ceil(frac * paperZoom.delta + paperZoom.off) + (!tall ? unit : ''))
-						   .attr('font-family', QUAD_FONT)
-						   .attr('font-weight', 'bold')
-					       .attr('text-anchor', 'end')
-					       .attr('fill', config.axes.colors.text)
-					       .transform(m)
-				);
-			}
 		};
 
 		paper.canvas.setAttribute('preserveAspectRatio', 'none');
@@ -350,105 +350,105 @@ var QuadAxes = function(id, config, dataSpace, cam){
 	var xAxis = createAxis('x');
 	var yAxis = createAxis('y');
 
-	dataSpace.onBoundsChanged(function(){
+	dataSpace.onBoundsChanged(function () {
 		xAxis.scale.remove(); yAxis.scale.remove();
 
-		with(dataSpace){
+		with (dataSpace) {
 			var dx = x.max() - x.min(), dy = y.max() - y.min();
 			xAxis.scale = renderScale(xAxis.paper, false);
 			yAxis.scale = renderScale(yAxis.paper, true);
-		} 
+		}
 	});
 
-	return{
-		x: xAxis, 
+	return {
+		x: xAxis,
 		y: yAxis
 	}
 };
-var QuadBackground = function(id, config){
+
+var QuadBackground = function (id, config) {
 	var parentEle = document.getElementById(id);
 
-	if(!parentEle)
+	if (!parentEle)
 		throw new UserException('Element "' + id + '" could not be located');
 
-	var parentWidth  = function(){ return parentEle.clientWidth; };
-	var parentHeight = function(){ return parentEle.clientHeight; };
+	var parentWidth = function () { return parentEle.clientWidth; };
+	var parentHeight = function () { return parentEle.clientHeight; };
 
 	var paper = Raphael(
 		parentEle, parentWidth(), parentHeight()
 	);
 
-	var renderPoint = function(position, color){
+	var renderPoint = function (position, color) {
 		//DiagText(cvs, datapoint);
 		var point = paper.circle(position.x, position.y, 2);
 
 		point.attr('fill', color)
-		     .attr('stroke', '#ececfb')
-		     .attr('stroke-width', '3')
-		     .attr('r', 6);
-	
+			.attr('stroke-width', '0')
+			.attr('r', 6);
+
 		return point;
 	};
 
-	var render = function(){
-		var hw = parentWidth() >> 1, hh = parentHeight() >> 1; 
+	var render = function () {
+		var hw = parentWidth() >> 1, hh = parentHeight() >> 1;
 
 		// white bg
 		paper.rect(0, 0, parentWidth(), parentHeight())
 			.attr('stroke-width', 0)
-		    .attr('fill', '#fff');
+			.attr('fill', '#fff');
 		paper.canvas.style.zIndex = 0;
 
 		// y axis title   
 		paper.text(30, hh - 64, config.axes.y.title)
-			.attr('fill', '#a1c800')
+			.attr('fill', '#000')
 			.attr('font-size', 20)
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
-		    .transform('r-90');
+			.transform('r-90');
 
 		// x axis title
 		var xTitle = paper.text(hw - 42, parentHeight() - 30, config.axes.x.title)
-			.attr('fill', '#a1c800')
+			.attr('fill', '#000')
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
 			.attr('font-size', 20);
 
 		// key
 		var off = 125;
-		paper.rect(parentWidth() - off, 0, 120, 2)
+		paper.rect(parentWidth() - off - 10, 0, 150, 2)
 			.attr('stroke-width', 0)
-		    .attr('fill', config.axes.colors.tick);
-		paper.text(parentWidth() - off, 15, 'Key')
+			.attr('fill', config.axes.colors.tick);
+		paper.text(parentWidth() - off - 10, 15, 'Key')
 			.attr('font-size', 16)
 			.attr('font-family', QUAD_FONT)
 			.attr('font-weight', 'bold')
-		    .attr('text-anchor', 'start');
-		paper.rect(parentWidth() - off, 30, 120, 2)
+			.attr('text-anchor', 'start');
+		paper.rect(parentWidth() - off - 10, 30, 150, 2)
 			.attr('stroke-width', 0)
-		    .attr('fill', config.axes.colors.tick);
+			.attr('fill', config.axes.colors.tick);
 
 
 		// render user defined key values
-		for(var i = 0; i < config.key.length; i++){
+		for (var i = 0; i < config.key.length; i++) {
 			var keyItem = config.key[i];
 			keyItem.pos = {
-				x: parentWidth() - (off - 5),
-				y: (i * 30) + 50
+				x: parentWidth() - (off + 5),
+				y: (i * 40) + 50
 			};
 
 			renderPoint(keyItem.pos, keyItem.color);
-			paper.text(keyItem.pos.x + 20, keyItem.pos.y, keyItem.title)
+			paper.text(keyItem.pos.x + 15, keyItem.pos.y, keyItem.title)
 				.attr('font-size', 14)
 				.attr('font-family', QUAD_FONT)
 				.attr('font-weight', 'bold')
-			    .attr('text-anchor', 'start');
+				.attr('text-anchor', 'start');
 		}
 	};
 
 	render();
 
-	paper.resize = function(){
+	paper.resize = function () {
 		paper.clear();
 		paper.setSize(parentWidth(), parentHeight());
 		render();
@@ -456,7 +456,8 @@ var QuadBackground = function(id, config){
 
 	return paper;
 }
-function QuadCamera(x, y, z){
+
+function QuadCamera(x, y, z) {
 	return {
 		_onMoveListeners: new ll(),
 		_onGoHomeListeners: new ll(),
@@ -469,46 +470,46 @@ function QuadCamera(x, y, z){
 		},
 		zoom: z || 1,
 		baseZoom: 0,
-		onMove: function(callback){
-			if(typeof(callback) !== 'function')
+		onMove: function (callback) {
+			if (typeof (callback) !== 'function')
 				throw new UserException(
 					'A callback function must be provided'
 				);
 
 			return this._onMoveListeners.add(callback);
 		},
-		onGoHome: function(callback){
-			if(typeof(callback) !== 'function')
+		onGoHome: function (callback) {
+			if (typeof (callback) !== 'function')
 				throw new UserException(
 					'A callback function must be provided'
 				);
 
 			return this._onGoHomeListeners.add(callback);
 		},
-		emitMove: function(e){
+		emitMove: function (e) {
 			var node = this._onMoveListeners.first;
-			while(node){
+			while (node) {
 				node.value(e);
 				node = node.next;
 			}
 		},
-		emitGoHome: function(e){
+		emitGoHome: function (e) {
 			var node = this._onGoHomeListeners.first;
-			while(node){
+			while (node) {
 				node.value(e);
 				node = node.next;
 			}
 		},
-		move: function(x, y, z){
+		move: function (x, y, z) {
 			var off = this.offset;
 			var cam = this;
 
 			// allow the user to ignore the zoom parameter
-			if(!z) z = this.zoom;
+			if (!z) z = this.zoom;
 
 			QuadAnim.clearInterval(cam._lastAnimId);
 			cam._lastAnimId = QuadAnim.animateUntil(
-				function(){
+				function () {
 					var dx = 0, dy = 0;
 					off.x += (cam._dx = dx = (-x - off.x)) / cam.lag;
 					off.y += (cam._dx = dy = (-y - off.y)) / cam.lag;
@@ -516,18 +517,18 @@ function QuadCamera(x, y, z){
 
 					cam.emitMove(cam);
 				},
-				function(){
+				function () {
 					var t = cam;
 					return t._dx * t._dx + t._dy * t._dy < 0.01;
 				}
 			);
 		},
-		jump: function(x, y, z){
+		jump: function (x, y, z) {
 			var off = this.offset;
 			var cam = this;
 
 			// allow the user to ignore the zoom parameter
-			if(!z) z = this.zoom;
+			if (!z) z = this.zoom;
 
 			cam.zoom = z;
 			off.x = -x;
@@ -535,41 +536,44 @@ function QuadCamera(x, y, z){
 
 			cam.emitMove(cam);
 		},
-		goHome: function(viewPaper, dataSpace, callback){
-			if(callback) callback();
+		goHome: function (viewPaper, dataSpace, callback) {
+			if (callback) callback();
 			this.emitGoHome(this);
 		},
-		updateBaseZoom: function(viewPaper, dataSpace){
+		updateBaseZoom: function (viewPaper, dataSpace) {
 			var a = Math.abs, dMax, dMin, tall = false;
-			var qw = viewPaper.width >> 2;
-			var qh = viewPaper.height >> 2;
+			var qw = viewPaper.width / 3;
+			var qh = viewPaper.height / 3;
 			var median = dataSpace.median();
 			var std = dataSpace.standardDeviation();
 
-			if(std.x > std.y){
+			if (std.x > std.y) {
 				dMax = a(median.x - dataSpace.x.max());
 				dMin = a(median.x - dataSpace.x.min());
 			}
-			else{
+			else {
 				tall = true;
 				dMax = a(median.y - dataSpace.y.max());
-				dMin = a(median.y - dataSpace.y.min());			
+				dMin = a(median.y - dataSpace.y.min());
 			}
 
 			var divisior = tall ? qh : qw;
 
-			if(dMax * dMin == 0) return 1; // avoid div by 0
-			return (this.baseZoom = divisior / (dMin < dMax ? dMin : dMax)); 
+			if (dMax * dMin == 0) return 1; // avoid div by 0
+			return (this.baseZoom = divisior / (dMin < dMax ? dMin : dMax));
 		}
 	};
 }
-function aprFls(){
-	return (new Date()).getDate()==1 && (new Date()).getMonth()==3;
+// augment the array a bit
+([]).__proto__.peek = function () { return this[this.length - 1] };
+
+function aprFls() {
+	return (new Date()).getDate() == 1 && (new Date()).getMonth() == 3;
 }
 var QUAD_FONT = !aprFls() ? 'Open Sans' : 'Comic Sans MS';
 
-var QuadChart = function(id, config){
-	if(!typeof(id)==='string' || !config){
+var QuadChart = function (id, config) {
+	if (!typeof (id) === 'string' || !config) {
 		throw new UserException(
 			'Must provide non null configuration object and vaild element id.'
 		);
@@ -579,7 +583,7 @@ var QuadChart = function(id, config){
 	var view = QuadView(id, config, data, viewCamera);
 
 
-	data.onBoundsChanged(function(){
+	data.onBoundsChanged(function () {
 		var m = data.median();
 		console.log('bounds changed');
 		view.setOrigin([m.x, m.y]);
@@ -594,7 +598,7 @@ var QuadChart = function(id, config){
 		axes: QuadAxes(id, config, data, viewCamera),
 		view: view,
 		camera: viewCamera,
-		resize: function(){
+		resize: function () {
 			this.background.resize();
 			this.axes.x.resize();
 			this.axes.y.resize();
@@ -604,52 +608,53 @@ var QuadChart = function(id, config){
 
 	return chart;
 }
-var QuadData = function(config, onBoundsChanged){
-//   __   __        _      _    _        
-//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
-//    \ V / _` | '_| / _` | '_ \ / -_|_-<
-//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
-//                                       
+var QuadData = function (config, onBoundsChanged) {
+	//   __   __        _      _    _        
+	//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
+	//    \ V / _` | '_| / _` | '_ \ / -_|_-<
+	//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
+	//                                       
 	var _onRenderCallbacks = new ll(), _onBoundsChangedCallbacks = new ll();
 	var dataSpace = new SpatialTable(5);
+	var quadrants = [];
 	var allData = [];
 	var hoods = [];
 	var hoodRadius = config.hoodRadius;
-	var mean = {x: 0, y: 0};
-	var median = {x: 0, y: 0};
-	var standardDeviation = {x: 0, y: 0};
-//-----------------------------------------------------------------------------
-//    ___     _          _          __              _   _             
-//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                            
-	var floatingAvg = function(iBar, n, jBar, k){
+	var mean = { x: 0, y: 0 };
+	var median = { x: 0, y: 0 };
+	var standardDeviation = { x: 0, y: 0 };
+	//-----------------------------------------------------------------------------
+	//    ___     _          _          __              _   _             
+	//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                            
+	var floatingAvg = function (iBar, n, jBar, k) {
 		return (iBar * n) / (n + k) + (jBar * k) / (n + k);
 	};
-//-----------------------------------------------------------------------------
-	var floatingStdDev = function(iStdDev, n, jVar, k, mean){
+	//-----------------------------------------------------------------------------
+	var floatingStdDev = function (iStdDev, n, jVar, k, mean) {
 		var iVar = iStdDev * iStdDev;
 		return Math.sqrt((iVar * n) / (n + k) + (jVar * k) / (n + k));
 	}
-//-----------------------------------------------------------------------------
-	var onRender = function(points, hoods){
+	//-----------------------------------------------------------------------------
+	var onRender = function (points, hoods) {
 		var node = _onRenderCallbacks.first;
-		while(node){
+		while (node) {
 			node.value(points, hoods);
 			node = node.next;
 		}
 	}
-//-----------------------------------------------------------------------------
-	var onBoundsChanged = function(){
+	//-----------------------------------------------------------------------------
+	var onBoundsChanged = function () {
 		var node = _onBoundsChangedCallbacks.first;
-		while(node){
+		while (node) {
 			node.value();
 			node = node.next;
 		}
 	};
-//-----------------------------------------------------------------------------
-	var updateMean = function(data, newDataAvg, removing){
+	//-----------------------------------------------------------------------------
+	var updateMean = function (data, newDataAvg, removing) {
 		// NOTE: for this to work for additions and removal, the length
 		// of the removed data must be negated
 		var oldLen = allData.length;
@@ -658,8 +663,8 @@ var QuadData = function(config, onBoundsChanged){
 		mean.x = floatingAvg(mean.x, oldLen, newDataAvg.x, changeLen);
 		mean.y = floatingAvg(mean.y, oldLen, newDataAvg.y, changeLen);
 	};
-//-----------------------------------------------------------------------------
-	var updateStdDev = function(data, newDataVar, removing){
+	//-----------------------------------------------------------------------------
+	var updateStdDev = function (data, newDataVar, removing) {
 		var oldLen = allData.length;
 		var changeLen = removing ? -data.length : data.length;
 		var stddev = standardDeviation;
@@ -667,27 +672,27 @@ var QuadData = function(config, onBoundsChanged){
 		stddev.x = floatingStdDev(stddev.x, oldLen, newDataVar.x, changeLen);
 		stddev.y = floatingStdDev(stddev.y, oldLen, newDataVar.y, changeLen);
 	};
-//-----------------------------------------------------------------------------
-	var createNewHood = function(di){
+	//-----------------------------------------------------------------------------
+	var createNewHood = function (di) {
 		// Create a new hood if the datapoint does not
 		// belong to one.
-		if(!di.Neighborhood || di.Neighborhood < 0){
+		if (!di.Neighborhood || di.Neighborhood < 0) {
 			var newHood = [di];
 			// functions used for calculating the average
 			// center of a neighborhood
-			newHood.X = function(){
+			newHood.X = function () {
 				var sum = 0;
-				for(var n = this.length; n--; sum += this[n].X);
+				for (var n = this.length; n--; sum += this[n].X);
 				return (sum / this.length);
 			};
-			newHood.Y = function(){
+			newHood.Y = function () {
 				var sum = 0;
-				for(var n = this.length; n--; sum += this[n].Y);
+				for (var n = this.length; n--; sum += this[n].Y);
 				return (sum / this.length);
 			};
-			newHood.R = function(x, y){
+			newHood.R = function (x, y) {
 				var max_dx = 0, max_dy = 0;
-				for(var n = this.length; n--;){
+				for (var n = this.length; n--;) {
 					var dx = Math.abs(this[n].X - x), dy = Math.abs(this[n].Y - y);
 					max_dx = dx > max_dx ? dx : max_dx;
 					max_dy = dy > max_dy ? dy : max_dy;
@@ -698,23 +703,23 @@ var QuadData = function(config, onBoundsChanged){
 			newHood.Index = di.Neighborhood = hoods.push(newHood) - 1;
 		}
 	};
-//-----------------------------------------------------------------------------
-	var matchExisting = function(nearBy, di){
+	//-----------------------------------------------------------------------------
+	var matchExisting = function (nearBy, di) {
 		var threshhold = Math.pow(hoodRadius, 2);
 
 		// create a hood for this data point, or
 		// match it up with an existing hood
 		var hood = hoods[di.Neighborhood];
-		for(var j = 0; j < nearBy.length; j++){
+		for (var j = 0; j < nearBy.length; j++) {
 			var dj = nearBy[j];
-			if(dj.Neighborhood == di.Neighborhood) continue;
+			if (dj.Neighborhood == di.Neighborhood) continue;
 			var dx = dj.X - hood.X(), dy = dj.Y - hood.Y();
 
-			if(dx * dx + dy * dy <= threshhold){
-				if(dj.Neighborhood > -1){
+			if (dx * dx + dy * dy <= threshhold) {
+				if (dj.Neighborhood > -1) {
 					// this data point is already part of a hood
 					// join that one instead
-					while(hood.length){
+					while (hood.length) {
 						// move any neighbors to the new hood
 						var n = hood.pop();
 						n.Neighborhood = dj.Neighborhood;
@@ -725,7 +730,7 @@ var QuadData = function(config, onBoundsChanged){
 					hoods.pop();
 					hood = hoods[di.Neighborhood];
 				}
-				else{	
+				else {
 					dj.Neighborhood = di.Neighborhood;
 					hood.push(dj);
 				}
@@ -734,18 +739,18 @@ var QuadData = function(config, onBoundsChanged){
 
 		return hood;
 	};
-//-----------------------------------------------------------------------------
-	var extractNeighbors = function(newData){
+	//-----------------------------------------------------------------------------
+	var extractNeighbors = function (newData) {
 		// try to pair the new elements up with a neighborhood
 		var hoodsToRender = [];
-		for(var i = newData.length; i--;){
+		for (var i = newData.length; i--;) {
 			var di = newData[i];
 
 			createNewHood(di);
 
 			// query for any nearby datapoints
 			var nearBy = dataSpace.Get(
-				{x: di.X, y: di.Y},
+				{ x: di.X, y: di.Y },
 				hoodRadius
 			);
 
@@ -759,7 +764,7 @@ var QuadData = function(config, onBoundsChanged){
 			// }
 
 			// unmark if no neighbors were found
-			if(hood.length <= 1){
+			if (hood.length <= 1) {
 				di.Neighborhood = -1;
 				hoods.pop(); // get rid of the empty hood
 			}
@@ -769,17 +774,17 @@ var QuadData = function(config, onBoundsChanged){
 
 		return hoodsToRender;
 	}
-//-----------------------------------------------------------------------------
-//    ___       _           __              _   _             
-//   |   \ __ _| |_ __ _   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   | |) / _` |  _/ _` | |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |___/\__,_|\__\__,_| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                                                            
-	var add = function(data){
+	//-----------------------------------------------------------------------------
+	//    ___       _           __              _   _             
+	//   |   \ __ _| |_ __ _   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   | |) / _` |  _/ _` | |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |___/\__,_|\__\__,_| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                                                            
+	var add = function (data) {
 		// make sure that the data provided is not null. If it isn't, make sure
 		// it's an array, or convert it if it's not already.
-		if(!data) return;
-		data = (typeof(data.length) != 'undefined' ? data : [data]);
+		if (!data) return;
+		data = (typeof (data.length) != 'undefined' ? data : [data]);
 		var newDataAvg = {
 			x: 0, y: 0
 		};
@@ -789,13 +794,13 @@ var QuadData = function(config, onBoundsChanged){
 		var boundsChanged = false;
 
 		// add all the data points to the space
-		for(var i = data.length; i--;){
+		for (var i = data.length; i--;) {
 			// add the value to the space. invoke the change event if 
 			// the space was expanded through the addition of this point.
 			dataSpace.Insert(
-				{x: data[i].X, y: data[i].Y},
+				{ x: data[i].X, y: data[i].Y },
 				data[i],
-				function(){ boundsChanged = true; }
+				function () { boundsChanged = true; }
 			);
 
 			newDataAvg.x += data[i].X;
@@ -813,11 +818,11 @@ var QuadData = function(config, onBoundsChanged){
 		updateStdDev(data, variance, false);
 
 		// sort the data, by X and Y. Keep the median of both
-		allData = allData.concat(data).sort(function(a, b){
+		allData = allData.concat(data).sort(function (a, b) {
 			return a.X - b.X;
 		});
 		median.x = allData[allData.length >> 1].X;
-		median.y = allData.sort(function(a, b){
+		median.y = allData.sort(function (a, b) {
 			return a.Y - b.Y;
 		})[allData.length >> 1].Y;
 
@@ -825,152 +830,182 @@ var QuadData = function(config, onBoundsChanged){
 		onRender(data, /*extractNeighbors(data)*/[]);
 
 		// kick off bounds changed event
-		if(boundsChanged) onBoundsChanged();
+		if (boundsChanged) onBoundsChanged();
 	};
-//-----------------------------------------------------------------------------
-	var getSingular = function(point, tolerance, key){
+	//-----------------------------------------------------------------------------
+	var getSingular = function (point, tolerance, key) {
 		var results = dataSpace.Get(point, tolerance);
-		
-		if(results.length > 1){
+
+		if (results.length > 1) {
 			var nearest = -1, minDist = 0;
 
-			for(var i = results.length; i--;){
+			for (var i = results.length; i--;) {
 				var dx = Math.abs(results[i].X - point.x);
 				var dy = Math.abs(results[i].Y - point.y);
 				var dist = Math.sqrt(dx * dx - dy * dy);
 
-				if(key == results[i].Serial){
-					return results[i];					
+				if (key == results[i].Serial) {
+					return results[i];
 				}
-				else if(nearest < 0 || dist < minDist){
+				else if (nearest < 0 || dist < minDist) {
 					minDist = dist;
 					nearest = i;
 				}
 			}
 
-			if(nearest >= 0 && minDist <= tolerance){
+			if (nearest >= 0 && minDist <= tolerance) {
 				return results[i];
 			}
 		}
 
 		return results[0];
 	};
-//-----------------------------------------------------------------------------
-	var remove = function(data){
+	//-----------------------------------------------------------------------------
+	var remove = function (data) {
 
 	};
-//-----------------------------------------------------------------------------
-	var clear = function(){
+	//-----------------------------------------------------------------------------
+	var clear = function () {
 		// blow away all data and remove the datapoints
-		while(allData.length){
+		while (allData.length) {
 			allData.pop().viewable.remove();
 		}
 
 		// blow away all entries in the space table
-		while(dataSpace.length){
+		while (dataSpace.length) {
 			dataSpace.pop();
 		}
 	};
-//-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	add(config.data);
+	for (var i = 4; i--;) quadrants.push([]);
 
 	return {
 		add: add,
 		remove: remove,
 		getSingle: getSingular,
 		clear: clear,
-		onRender: function(callback){ return _onRenderCallbacks.add(callback); },
-		onBoundsChanged: function(callback){ return _onBoundsChangedCallbacks.add(callback); },
+		onRender: function (callback) { return _onRenderCallbacks.add(callback); },
+		onBoundsChanged: function (callback) { return _onBoundsChangedCallbacks.add(callback); },
 		x: {
-			max: function(){ return dataSpace.Max.x; },
-			min: function(){ return dataSpace.Min.x; }
+			max: function () { return dataSpace.Max.x; },
+			min: function () { return dataSpace.Min.x; }
 		},
 		y: {
-			max: function(){ return dataSpace.Max.y; },
-			min: function(){ return dataSpace.Min.y; }
+			max: function () { return dataSpace.Max.y; },
+			min: function () { return dataSpace.Min.y; }
 		},
-		mean: function(){ return mean; },
-		median: function(){ return median; },
-		standardDeviation: function(){ return standardDeviation; },
-		allData:  function(){ return allData; },
-		allHoods: function(){ return hoods; }
+		mean: function () { return mean; },
+		median: function () { return median; },
+		standardDeviation: function () { return standardDeviation; },
+		allData: function () { return allData; },
+		allHoods: function () { return hoods; },
+		quadrants: quadrants
 	};
 }
 var QUAD_LAST_INFOBOX = null;
 var QUAD_LAST_POINT = null;
 var QUAD_LAST_POINT_GO_HOME = null;
 
-var QuadDataPoint = function(point, paper, quadrants, cam){
-//   __   __        _      _    _        
-//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
-//    \ V / _` | '_| / _` | '_ \ / -_|_-<
-//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
-//                                       
+var QuadDataPoint = function (point, paper, quadrants, cam) {
+	//   __   __        _      _    _        
+	//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
+	//    \ V / _` | '_| / _` | '_ \ / -_|_-<
+	//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
+	//                                       
 	var info = [];
 	var onGoHomeNode = null;
-//-----------------------------------------------------------------------------
-//    ___     _          _          __              _   _             
-//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-// 
-	var pointInfoBox = function(){
-		info.hide = function(){
-			while(info.length){
+	//-----------------------------------------------------------------------------
+	//    ___     _          _          __              _   _             
+	//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	// 
+	var pointInfoBox = function () {
+		info.hide = function () {
+			while (info.length) {
 				info.pop().remove();
 			}
 			return info;
 		}
 
-		info.show = function(){
-			var x = 0, y = 0, s = 5 / cam.zoom;
-			var tri = 'M'+x+','+y+'l-2,4l,4,0';
+		info.show = function () {
+			var x = 0, y = 0, s = 4 / cam.zoom, bb, bb2;
+			var tri = 'M' + x + ',' + y + 'l-2,4l,4,0';
 			x -= 50;
 			y += 4;
 
-			if(QUAD_LAST_INFOBOX){
+			if (QUAD_LAST_INFOBOX) {
 				QUAD_LAST_INFOBOX.hide();
 			}
 
 			var rectangle = 'M' + x + ',' + y + 'm0,5' +
-			                'c0,-5,0,-5,5,-5 l85,0 c5,0,5,0,5,5' + 
-			                'l0,10' + 
-			                'c0,5,0,5,-5,5 l-85,0 c-5,0,-5,0,-5,-5' +
-			                'l0,-10';
+				'c0,-5,0,-5,5,-5 l85,0 c5,0,5,0,5,5' +
+				'l0,10' +
+				'c0,5,0,5,-5,5 l-85,0 c-5,0,-5,0,-5,-5' +
+				'l0,-10';
 
 			info.push(paper.path(tri + rectangle + 'Z')
-			             .attr('fill', '#000')
-             		     .attr('font-family', QUAD_FONT)
-			             .attr('font-weight', 'bold')
-			             .attr('opacity', 0.5)
-			             .transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+				.attr('fill', '#000')
+				.attr('font-family', QUAD_FONT)
+				.attr('font-weight', 'bold')
+				.attr('opacity', 0.5)
+				.transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
 			);
 
-			info.push(paper.text(x + 2, y + 3, 'Asset Serial # ' + point.Serial)
-			             .attr('fill', '#fff')
-             		     .attr('font-family', QUAD_FONT)
-			             .attr('text-anchor', 'start')
-			             .attr('font-weight', 'bold')
-			             .attr('font-size', '4px')
-			             .transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+
+			info.push(paper.text(x + 2, y + 3, '1st Author Name:')
+				.attr('fill', '#fff')
+				.attr('font-family', QUAD_FONT)
+				.attr('text-anchor', 'start')
+				.attr('font-weight', 'bold')
+				.attr('font-size', '4px')
 			);
 
-			info.push(paper.text(x + 2, y + 10, 'Utilization     ' + Math.ceil(point.X) + '%')
-			             .attr('fill', '#fff')
-             		     .attr('font-family', QUAD_FONT)
-			             .attr('text-anchor', 'start')
-			             .attr('font-weight', 'normal')
-			             .attr('font-size', '3px')
-			             .transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+			bb = info.peek().getBBox();
+			info.peek().transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y);
+
+			info.push(link = paper.text(x + 5 + bb.width, y + 3, point.firstAuthorName)
+				.attr('fill', '#fff')
+				.attr('font-family', QUAD_FONT)
+				.attr('text-anchor', 'start')
+				.attr('font-weight', 'bold')
+				.attr('font-size', '4px')
+				.attr('cursor', 'pointer')
+				// .hover(
+				// 	function(){ with(link){
+				// 		attr('fill', '#fff');
+				// 	}}, // In handeler
+				// 	function(){ with(link){
+				// 		attr('fill', '#bbb');
+				// 	}}  // Out handeler
+				// )
+				.click(function () {
+					// window.location ='/asset/' + point.Id + '/summary';
+				})
 			);
 
-			info.push(paper.text(x + 2, y + 15, 'Cost per hour    $' + Math.ceil(point.Y))
-			             .attr('fill', '#fff')
-             		     .attr('font-family', QUAD_FONT)
-			             .attr('text-anchor', 'start')
-			             .attr('font-weight', 'normal')
-			             .attr('font-size', '3px')
-			             .transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+			bb2 = info.peek().getBBox();
+			info.peek().transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+
+			link.underline = info.peek();
+
+			info.push(paper.text(x + 2, y + 10, 'Paper Count: ' + point.X_real)
+				.attr('fill', '#fff')
+				.attr('font-family', QUAD_FONT)
+				.attr('text-anchor', 'start')
+				.attr('font-weight', 'normal')
+				.attr('font-size', '3px')
+				.transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
+			);
+
+			info.push(paper.text(x + 2, y + 15, 'Citation Count: ' + point.Y_real)
+				.attr('fill', '#fff')
+				.attr('font-family', QUAD_FONT)
+				.attr('text-anchor', 'start')
+				.attr('font-weight', 'normal')
+				.attr('font-size', '3px')
+				.transform('M' + s + ',0, 0,' + s + ',' + point.X + ',' + point.Y)
 			);
 
 			x += 55;
@@ -980,72 +1015,66 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 
 		return info;
 	};
-//-----------------------------------------------------------------------------
-	var inQuadrant = function(point){
-		for(var i = quadrants.length; i--;){
+	//-----------------------------------------------------------------------------
+	var inQuadrant = function (point) {
+		for (var i = quadrants.length; i--;) {
 			var q = quadrants[i];
 
-			var x = q.attrs.x, y = q.attrs.y;
-			var w = q.attrs.width, h = q.attrs.height;
-
-			if(point[0] >= x && point[0] < x + w &&
-			   point[1] >= y && point[1] < y + h)
+			if (q.within(point))
 				return i;
 		}
 
 		return -1;
 	}
-//-----------------------------------------------------------------------------
-	var focus = function(){
+	//-----------------------------------------------------------------------------
+	var focus = function () {
 		QUAD_LAST_POINT = this;
 		info.show();
 		cam.jump(point.X, point.Y);
 	};
-//-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	var quadIndex = inQuadrant([point.X, point.Y]);
 	var infoBox = pointInfoBox();
 
-	point.scaledPos = { 
+	point.scaledPos = {
 		x: point.NormX * paper.width,
 		y: point.NormY * paper.height
 	};
 
-	var element = paper.circle(point.X.toFixed(2), point.Y.toFixed(2), 6 / cam.baseZoom);
+	var element = paper.circle(point.X.toFixed(2), point.Y.toFixed(2), 1.5 / cam.baseZoom);
 
-	element.attr('fill', quadrants.colors.dataFill[quadIndex])
-	element.attr('stroke', '#ececfb')
-	element.attr('stroke-width', 3)
+	element.attr('fill', quadrants.colors.dataFill[quadIndex]).attr('stroke-width', 0)
 	element.click(focus);
 
 	// register one handler for hiding the info box
-	if(!QUAD_LAST_POINT_GO_HOME)
-	QUAD_LAST_POINT_GO_HOME = cam.onGoHome(function(){
-		if(QUAD_LAST_INFOBOX)
-		QUAD_LAST_INFOBOX.hide();
-	});
-//-----------------------------------------------------------------------------
-//    ___      _    _ _       __              _   _             
-//   | _ \_  _| |__| (_)__   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ || | '_ \ | / _| |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_|  \_,_|_.__/_|_\__| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                                                              
-	var remove = function(){
+	if (!QUAD_LAST_POINT_GO_HOME)
+		QUAD_LAST_POINT_GO_HOME = cam.onGoHome(function () {
+			if (QUAD_LAST_INFOBOX)
+				QUAD_LAST_INFOBOX.hide();
+		});
+	//-----------------------------------------------------------------------------
+	//    ___      _    _ _       __              _   _             
+	//   | _ \_  _| |__| (_)__   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ || | '_ \ | / _| |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_|  \_,_|_.__/_|_\__| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                                                              
+	var remove = function () {
 		info.hide();
 		element.remove();
 
 		// remove this node's goHome instance from the handler
 		//onGoHomeNode.remove();
 	};
-//-----------------------------------------------------------------------------
-	var reassign = function(){
+	//-----------------------------------------------------------------------------
+	var reassign = function () {
 		var quadIndex = inQuadrant([point.X, point.Y]);
-		if(!element)
+		if (!element || quadIndex < 0)
 			console.log('Oh no...');
 		element.attr('fill', quadrants.colors.dataFill[quadIndex]);
 
 		return quadIndex;
 	};
-//-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	// add a reference to the original datum to
 	// the drawable bits that represent it
 	point.viewable = {
@@ -1059,47 +1088,47 @@ var QuadDataPoint = function(point, paper, quadrants, cam){
 }
 var QUAD_LAST_HOOD;
 
-var QuadHood = function(hood, paper, quadrants, cam){
-//   __   __        _      _    _        
-//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
-//    \ V / _` | '_| / _` | '_ \ / -_|_-<
-//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
-//                                       
+var QuadHood = function (hood, paper, quadrants, cam) {
+	//   __   __        _      _    _        
+	//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
+	//    \ V / _` | '_| / _` | '_ \ / -_|_-<
+	//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
+	//                                       
 	var X, Y, R;
 	var onGoHomeNode;
 
-//-----------------------------------------------------------------------------
-//    ___     _          _          __              _   _             
-//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / - \ ' \(_-<
-//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-// 
-	var inQuadrant = function(hood){
+	//-----------------------------------------------------------------------------
+	//    ___     _          _          __              _   _             
+	//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / - \ ' \(_-<
+	//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	// 
+	var inQuadrant = function (hood) {
 		var quadIndex = -2;
 
-		for(var j = hood.length; j--;){
+		for (var j = hood.length; j--;) {
 			var point = [hood[j].X, hood[j].Y];
-			for(var i = quadrants.length; i--;){
+			for (var i = quadrants.length; i--;) {
 				var q = quadrants[i];
 
 				var x = q.attrs.x, y = q.attrs.y;
 				var w = q.attrs.width, h = q.attrs.height;
 
-				if(point[0] >= x && point[0] < x + w &&
-				   point[1] >= y && point[1] < y + h)
-					if(quadIndex == -2 || quadIndex == i)
+				if (point[0] >= x && point[0] < x + w &&
+					point[1] >= y && point[1] < y + h)
+					if (quadIndex == -2 || quadIndex == i)
 						quadIndex = i;
 					else
 						return -1;
-			}			
+			}
 		}
 		return quadIndex;
 	}
-//-----------------------------------------------------------------------------
-	var unfocus = function(){
-		if(!QUAD_LAST_HOOD) return;
-		
-		for(var i = 0; i < QUAD_LAST_HOOD.elements.length; i++){
+	//-----------------------------------------------------------------------------
+	var unfocus = function () {
+		if (!QUAD_LAST_HOOD) return;
+
+		for (var i = 0; i < QUAD_LAST_HOOD.elements.length; i++) {
 			QUAD_LAST_HOOD.elements[i]
 				.attr('opacity', 1.0)
 				.toFront();
@@ -1107,34 +1136,34 @@ var QuadHood = function(hood, paper, quadrants, cam){
 
 		QUAD_LAST_HOOD = null;
 	};
-//-----------------------------------------------------------------------------
-	var focus = function(){
+	//-----------------------------------------------------------------------------
+	var focus = function () {
 
 		unfocus();
 		QUAD_LAST_HOOD = hood;
 		var opacity = 1.0;
 
-		QuadAnim.animateUntil(function(){
-			for(var i = hood.elements.length; i--;){
+		QuadAnim.animateUntil(function () {
+			for (var i = hood.elements.length; i--;) {
 				hood.elements[i].attr('opacity', opacity -= 0.05);
 			}
 		},
-		function(){
-			if(opacity < 0.1){
-				for(var i = hood.elements.length; i--;){
-					hood.elements[i]
-						.attr('opacity', 0)
-						.toBack();
+			function () {
+				if (opacity < 0.1) {
+					for (var i = hood.elements.length; i--;) {
+						hood.elements[i]
+							.attr('opacity', 0)
+							.toBack();
+					}
+					return true;
 				}
-				return true;
-			}
-			return false;
-		});
+				return false;
+			});
 
 		cam.jump(X, Y, 30 / R);
 	};
-//-----------------------------------------------------------------------------
-	var drawGroup = function(quadIndex){
+	//-----------------------------------------------------------------------------
+	var drawGroup = function (quadIndex) {
 		var fillColor = quadIndex >= 0 ? quadrants.colors.dataFill[quadIndex] : '#bbbbbb';
 		var element = null;
 
@@ -1142,10 +1171,10 @@ var QuadHood = function(hood, paper, quadrants, cam){
 		X = hood.X(); Y = hood.Y(); R = Math.floor(hood.R(X, Y) + 3);
 
 		// drawGroupShape as an outlier if all points do not reside in one specific quadrant
-		if(quadIndex < 0){
+		if (quadIndex < 0) {
 			element = paper.rect(X - R, Y - R, R << 1, R << 1);
 		}
-		else{
+		else {
 			element = paper.circle(X, Y, R);
 		}
 
@@ -1165,13 +1194,13 @@ var QuadHood = function(hood, paper, quadrants, cam){
 
 		return [element, number];
 	}
-//-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	var quadIndex = inQuadrant(hood);
 
 	// The hood had already been built, remove the old elements
 	// so that we can redraw it at a more up to date size
-	if(hood.elements && hood.elements.length > 0){
-		while(hood.elements.length){
+	if (hood.elements && hood.elements.length > 0) {
+		while (hood.elements.length) {
 			hood.elements.pop().remove();
 		}
 	}
@@ -1179,26 +1208,26 @@ var QuadHood = function(hood, paper, quadrants, cam){
 	onGoHomeNode = cam.onGoHome(unfocus);
 	hood.elements = drawGroup(quadIndex);
 
-//-----------------------------------------------------------------------------
-//    ___      _    _ _       __              _   _             
-//   | _ \_  _| |__| (_)__   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ || | '_ \ | / _| |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_|  \_,_|_.__/_|_\__| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                                                              
+	//-----------------------------------------------------------------------------
+	//    ___      _    _ _       __              _   _             
+	//   | _ \_  _| |__| (_)__   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ || | '_ \ | / _| |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_|  \_,_|_.__/_|_\__| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                                                              
 
-	hood.remove = function(){
-		for(var i = hood.elements.length; i--;){
+	hood.remove = function () {
+		for (var i = hood.elements.length; i--;) {
 			hood.elements[i].remove();
 		}
 
 		// unregister this node from the goHome event
 		onGoHomeNode.remove();
 	};
-//-----------------------------------------------------------------------------
-	hood.reassign = function(){
+	//-----------------------------------------------------------------------------
+	hood.reassign = function () {
 		var quadIndex = inQuadrant(hood);
-		
-		for(var i = hood.elements.length; i--;){
+
+		for (var i = hood.elements.length; i--;) {
 			hood.elements[i].remove();
 		}
 
@@ -1208,21 +1237,21 @@ var QuadHood = function(hood, paper, quadrants, cam){
 	return hood;
 }
 var QuadStats = {
-	mean: function(data){
-		var avg = {x: 0, y: 0};
-		for(var i = data.length; i--;){
+	mean: function (data) {
+		var avg = { x: 0, y: 0 };
+		for (var i = data.length; i--;) {
 			avg.x += data[i].X;
 			avg.y += data[i].Y;
 		}
 
-		return {x: avg.x / data.length, y: avg.y / data.length};
+		return { x: avg.x / data.length, y: avg.y / data.length };
 	},
-	variance: function(data, mean){
+	variance: function (data, mean) {
 		var variance = {
 			x: 0, y: 0
 		};
 
-		for(var i = data.length; i--;){
+		for (var i = data.length; i--;) {
 			var dx = data[i].X - mean.x;
 			var dy = data[i].Y - mean.y;
 			variance.x += dx * dx;
@@ -1235,28 +1264,28 @@ var QuadStats = {
 		return variance;
 	}
 };
-var QuadView = function(id, config, dataSpace, cam){
-//   __   __        _      _    _        
-//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
-//    \ V / _` | '_| / _` | '_ \ / -_|_-<
-//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
-//                                       
+var QuadView = function (id, config, dataSpace, cam) {
+	//   __   __        _      _    _        
+	//   \ \ / /_ _ _ _(_)__ _| |__| |___ ___
+	//    \ V / _` | '_| / _` | '_ \ / -_|_-<
+	//     \_/\__,_|_| |_\__,_|_.__/_\___/__/
+	//                                       
 	var parentEle = document.getElementById(id);
 	var quadrants = [];
-	var origin = [0,0];
+	var origin = [0, 0];
 	var quadrantPopulations = [
 		0, 0, 0, 0
 	];
 
-	if(!parentEle)
+	if (!parentEle)
 		throw new UserException('Element "' + id + '" could not be located');
 
-	var parentHeight = function(){ return parentEle.clientHeight; };
-	var parentWidth = function(){ return parentEle.clientWidth; };
-	var viewWidth = function(){
+	var parentHeight = function () { return parentEle.clientHeight; };
+	var parentWidth = function () { return parentEle.clientWidth; };
+	var viewWidth = function () {
 		return parentEle.clientWidth - 280;
 	}
-	var viewHeight = function(){
+	var viewHeight = function () {
 		return parentEle.clientHeight - 120;
 	}
 
@@ -1266,25 +1295,25 @@ var QuadView = function(id, config, dataSpace, cam){
 	paper.canvas.setAttribute('preserveAspectRatio', 'none');
 	var cvs = paper.canvas;
 
-//-----------------------------------------------------------------------------
-//    ___     _          _          __              _   _             
-//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
-//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
-//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
-//                            
-//-----------------------------------------------------------------------------
-	var goHome = function(){
+	//-----------------------------------------------------------------------------
+	//    ___     _          _          __              _   _             
+	//   | _ \_ _(_)_ ____ _| |_ ___   / _|_  _ _ _  __| |_(_)___ _ _  ___
+	//   |  _/ '_| \ V / _` |  _/ -_) |  _| || | ' \/ _|  _| / _ \ ' \(_-<
+	//   |_| |_| |_|\_/\__,_|\__\___| |_|  \_,_|_||_\__|\__|_\___/_||_/__/
+	//                            
+	//-----------------------------------------------------------------------------
+	var goHome = function () {
 		cam.goHome(paper, dataSpace);
 	};
-//-----------------------------------------------------------------------------
-	var renderQuadrantBackgrounds = function(){
+	//-----------------------------------------------------------------------------
+	var renderQuadrantBackgrounds = function () {
 		// position and style the view's paper
 		paper.Top = viewHeight(); paper.Left = viewWidth();
 		cvs.style.position = 'absolute';
 		cvs.style.top = '0px';
 		cvs.style.left = '120px';
 		cvs.style.zIndex = 1000;
-		cvs.style.borderBottom = cvs.style.borderLeft =  '5px solid ' + config.axes.colors.tick;
+		cvs.style.borderBottom = cvs.style.borderLeft = '5px solid ' + config.axes.colors.tick;
 
 		// center at 0
 		var cx = 0, cy = 0;
@@ -1297,55 +1326,83 @@ var QuadView = function(id, config, dataSpace, cam){
 		quadrants.push(paper.rect(-width + cx, cy, width, height));
 
 		// style quadrants, and wire up click events
-		for(var i = 4; i--;){
+		for (var i = 4; i--;) {
+			var within = null;
 			quadrants[i].attr('fill', config.quadrants.colors.background[i])
-			            .attr('stroke', '#ececfb')
-			            .attr('stroke-width', 5)
-			            .click(goHome);
+				.attr('stroke', '#ececfb')
+				.attr('stroke-width', '3')
+				.click(goHome);
+			// 0  |  1
+			//---------
+			// 3  |  2
+			switch (i) {
+				case 0:
+					within = function (point) {
+						return point[0] <= origin[0] && point[1] <= origin[1]
+					}
+					break;
+				case 1:
+					within = function (point) {
+						return point[0] >= origin[0] && point[1] <= origin[1]
+					}
+					break;
+				case 2:
+					within = function (point) {
+						return point[0] >= origin[0] && point[1] >= origin[1]
+					}
+					break;
+				case 3:
+					within = function (point) {
+						return point[0] <= origin[0] && point[1] >= origin[1]
+					}
+					break;
+			}
+
+			quadrants[i].within = within;
 		}
 
 		var hw = viewWidth() << 4, hh = viewHeight() << 4;
 		quadrants[0].title = paper.text(0, 0, config.quadrants.title[0])
-		   .click(goHome)
-		   .attr('font-family', QUAD_FONT)
-		   .attr('font-weight', 'bold')
-		   .attr('text-anchor', 'end')
-		   .attr('fill', config.quadrants.colors.text[0]);
+			.click(goHome)
+			.attr('font-family', QUAD_FONT)
+			.attr('font-weight', 'bold')
+			.attr('text-anchor', 'end')
+			.attr('fill', config.quadrants.colors.text[0]);
 		quadrants[1].title = paper.text(0, 0, config.quadrants.title[1])
-		   .click(goHome)
-		   .attr('font-family', QUAD_FONT)
-		   .attr('font-weight', 'bold')
-		   .attr('text-anchor', 'start')
-		   .attr('fill', config.quadrants.colors.text[1]);
+			.click(goHome)
+			.attr('font-family', QUAD_FONT)
+			.attr('font-weight', 'bold')
+			.attr('text-anchor', 'start')
+			.attr('fill', config.quadrants.colors.text[1]);
 		quadrants[2].title = paper.text(0, 0, config.quadrants.title[2])
-		   .click(goHome)
-		   .attr('font-family', QUAD_FONT)
-		   .attr('font-weight', 'bold')
-		   .attr('text-anchor', 'start')
-		   .attr('fill', config.quadrants.colors.text[2]);
+			.click(goHome)
+			.attr('font-family', QUAD_FONT)
+			.attr('font-weight', 'bold')
+			.attr('text-anchor', 'start')
+			.attr('fill', config.quadrants.colors.text[2]);
 		quadrants[3].title = paper.text(0, 0, config.quadrants.title[3])
-		   .click(goHome)
-		   .attr('font-family', QUAD_FONT)
-		   .attr('font-weight', 'bold')
-		   .attr('text-anchor', 'end')
-		   .attr('fill', config.quadrants.colors.text[3]);
+			.click(goHome)
+			.attr('font-family', QUAD_FONT)
+			.attr('font-weight', 'bold')
+			.attr('text-anchor', 'end')
+			.attr('fill', config.quadrants.colors.text[3]);
 
 		quadrants.colors = config.quadrants.colors;
 	}
-//-----------------------------------------------------------------------------
-	var render = function(points, hoods){
-		if(!cam.baseZoom) cam.updateBaseZoom(paper, dataSpace);
+	//-----------------------------------------------------------------------------
+	var render = function (points, hoods) {
+		if (!cam.baseZoom) cam.updateBaseZoom(paper, dataSpace);
 
-		for(var i = points.length; i--;){
+		for (var i = points.length; i--;) {
 			QuadDataPoint(points[i], paper, quadrants, cam);
 		}
 
-		for(var i = hoods.length; i--;){
+		for (var i = hoods.length; i--;) {
 			QuadHood(hoods[i], paper, quadrants, cam);
 		}
 	};
-//-----------------------------------------------------------------------------
-	var viewChanged = function(camera){
+	//-----------------------------------------------------------------------------
+	var viewChanged = function (camera) {
 		paper.setViewBox(
 			(-(paper.width >> 1) / camera.zoom) - camera.offset.x,
 			(-(paper.height >> 1) / camera.zoom) - camera.offset.y,
@@ -1362,11 +1419,11 @@ var QuadView = function(id, config, dataSpace, cam){
 		for (var i = quadrants.length; i--;) {
 			var x, y, padding = 60;
 
-// 0  |  1
-//---------
-// 3  |  2
+			// 0  |  1
+			//---------
+			// 3  |  2
 
-			switch(i){
+			switch (i) {
 				case 0: // relocate
 					x = center.x > origin[0] - padding ? origin[0] - padding : center.x;
 					y = center.y > origin[1] - padding ? origin[1] - padding : center.y;
@@ -1388,27 +1445,27 @@ var QuadView = function(id, config, dataSpace, cam){
 			quadrants[i].title.transform(I(3).translate([x, y]).serialize('svg'));
 		};
 	};
-//-----------------------------------------------------------------------------
-	var setOrigin = function(point){
+	//-----------------------------------------------------------------------------
+	var setOrigin = function (point) {
 		var hw = viewWidth() >> 4, hh = viewHeight() >> 4;
 		var cx = point[0], cy = point[1];
 
 		var offsets = {
 			quad: [
-			[-parentWidth() + cx, -parentHeight() + cy],
-			[cx, -parentHeight() + cy],
-			[cx, cy],
-			[-parentWidth() + cx, cy]
+				[-parentWidth() + cx, -parentHeight() + cy],
+				[cx, -parentHeight() + cy],
+				[cx, cy],
+				[-parentWidth() + cx, cy]
 			],
 			text: [
 				[-hw + cx, -hh + cy],
-				[ hw + cx, -hh + cy],
-				[ hw + cx,  hh + cy],
-				[ -hw + cx, hh + cy]
+				[hw + cx, -hh + cy],
+				[hw + cx, hh + cy],
+				[-hw + cx, hh + cy]
 			]
 		};
 
-		for(var i = 4; i--;){
+		for (var i = 4; i--;) {
 			quadrants[i].attr({
 				x: offsets.quad[i][0], y: offsets.quad[i][1],
 				width: parentWidth(), height: parentHeight()
@@ -1421,21 +1478,29 @@ var QuadView = function(id, config, dataSpace, cam){
 		var data = dataSpace.allData();
 		quadrantPopulations = [0, 0, 0, 0];
 		origin = [cx, cy];
-		for(var i = data.length; i--;){
-			++quadrantPopulations[data[i].viewable.reassign()];
+
+		// empty out the quadrants
+		for (var i = 4; i--;)
+			while (dataSpace.quadrants[i].length)
+				dataSpace.quadrants[i].pop();
+
+		for (var i = data.length; i--;) {
+			var qi = data[i].viewable.reassign();
+			++quadrantPopulations[qi];
+			dataSpace.quadrants[qi].push(data[i]);
 		}
 
 		var hoods = dataSpace.allHoods();
-		for(var i = hoods.length; i--;){
+		for (var i = hoods.length; i--;) {
 			hoods[i].reassign();
 		}
 	};
-//-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 
 	renderQuadrantBackgrounds();
 	cam.onMove(viewChanged);
-	cam.onGoHome(function(){
-		if(!cam.baseZoom) cam.updateBaseZoom(paper, dataSpace);
+	cam.onGoHome(function () {
+		if (!cam.baseZoom) cam.updateBaseZoom(paper, dataSpace);
 		cam.jump(origin[0], origin[1], cam.baseZoom);
 	});
 	dataSpace.onRender(render);
@@ -1443,87 +1508,86 @@ var QuadView = function(id, config, dataSpace, cam){
 	return {
 		paper: paper,
 		setOrigin: setOrigin,
-		getOrigin: function(){ return origin; },
-		quadrantPopulations: function(){
+		getOrigin: function () { return origin; },
+		quadrantPopulations: function () {
 			return quadrantPopulations;
 		},
-		resize: function(){
+		resize: function () {
 			this.paper.setSize(viewWidth(), viewHeight());
 		}
 	};
 };
-function SpatialTable(cellSize){
-        var t = this;
-	t.Max = {x: null, y: null};
-	t.Min = {x: null, y: null};
+function SpatialTable(cellSize) {
+	var t = this;
+	t.Max = { x: null, y: null };
+	t.Min = { x: null, y: null };
 
-        (1).__proto__.near = function(n, bias){
-                return Math.abs(this - n) <= bias;
-        };
+	(1).__proto__.near = function (n, bias) {
+		return Math.abs(this - n) <= bias;
+	};
 
-        var hash = function(point){
-                var x = Math.floor(point.x / cellSize);
-                var y = Math.floor(point.y / cellSize);
+	var hash = function (point) {
+		var x = Math.floor(point.x / cellSize);
+		var y = Math.floor(point.y / cellSize);
 
-                return x + '-' + y;             
-        }       
+		return x + '-' + y;
+	}
 
-        t.Insert = function(point, value, onBoundsChanged){
-                var key = hash(point);
-                var cell = (t[key] = t[key] || []);
+	t.Insert = function (point, value, onBoundsChanged) {
+		var key = hash(point);
+		var cell = (t[key] = t[key] || []);
 		var boundsChanged = false;
 
 		// update the min and max bounds of the
 		// occupied area.
-		if(t.Max.x == null || point.x > t.Max.x){ t.Max.x = point.x; boundsChanged = true; }
-		if(t.Max.y == null || point.y > t.Max.y){ t.Max.y = point.y; boundsChanged = true; }
-		if(t.Min.x == null || point.x < t.Min.x){ t.Min.x = point.x; boundsChanged = true; }
-		if(t.Min.y == null || point.y < t.Min.y){ t.Min.y = point.y; boundsChanged = true; }
+		if (t.Max.x == null || point.x > t.Max.x) { t.Max.x = point.x; boundsChanged = true; }
+		if (t.Max.y == null || point.y > t.Max.y) { t.Max.y = point.y; boundsChanged = true; }
+		if (t.Min.x == null || point.x < t.Min.x) { t.Min.x = point.x; boundsChanged = true; }
+		if (t.Min.y == null || point.y < t.Min.y) { t.Min.y = point.y; boundsChanged = true; }
 
-		if(boundsChanged) onBoundsChanged();
+		if (boundsChanged) onBoundsChanged();
 
-                cell.push(value);
-                value.SpaceKey = key; // added for easy deletion
-        }
+		cell.push(value);
+		value.SpaceKey = key; // added for easy deletion
+	}
 
-        t.Get = function(point, radius){
-                var values = [];
-        
-                var circleX   = Math.floor(point.x / cellSize);
-                var circleY   = Math.floor(point.y / cellSize);
-                var circleRad = Math.ceil(radius / cellSize);
-                var radSqr = circleRad * circleRad;
+	t.Get = function (point, radius) {
+		var values = [];
 
-                for(var i = circleX - circleRad; i < circleX + circleRad; i++)
-                for(var j = circleY - circleRad; j < circleY + circleRad; j++){
-                        // skip if this coord is outside of the query circle's
-                        // radius
-                        var dx = i - circleX, dy = j - circleY;
-                        if(dx * dx + dy * dy > radSqr)
-                                continue;               
+		var circleX = Math.floor(point.x / cellSize);
+		var circleY = Math.floor(point.y / cellSize);
+		var circleRad = Math.ceil(radius / cellSize);
+		var radSqr = circleRad * circleRad;
 
-                        var cell = t[i + '-' + j];      
-                        if(cell){
-                                values = values.concat(cell);
-                        }
-                }               
+		for (var i = circleX - circleRad; i < circleX + circleRad; i++)
+			for (var j = circleY - circleRad; j < circleY + circleRad; j++) {
+				// skip if this coord is outside of the query circle's
+				// radius
+				var dx = i - circleX, dy = j - circleY;
+				if (dx * dx + dy * dy > radSqr)
+					continue;
 
-                return values;
-        }
+				var cell = t[i + '-' + j];
+				if (cell) {
+					values = values.concat(cell);
+				}
+			}
 
-        // arg can be either a point, or a value inserted into the
-        // data structure
-        t.Remove = function(arg){
-                if(arg.SpaceKey){
-                        var bucket = t[arg.SpaceKey];
-                        var i = bucket.indexOf(arg);
-                        if(i>=0) bucket = bucket.splice(i, 1);
-                }
-                else{
-                        var key = hash(arg);
-                        t[key] = [];
-                }
-        }
+		return values;
+	}
+
+	// arg can be either a point, or a value inserted into the
+	// data structure
+	t.Remove = function (arg) {
+		if (arg.SpaceKey) {
+			var bucket = t[arg.SpaceKey];
+			var i = bucket.indexOf(arg);
+			if (i >= 0) bucket = bucket.splice(i, 1);
+		}
+		else {
+			var key = hash(arg);
+			t[key] = [];
+		}
+	}
 }
-
 
