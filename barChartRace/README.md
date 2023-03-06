@@ -6,6 +6,6 @@ This folder conatains a script that allows for converting a CSV to a Bar Chart R
 ## Folder Structure
 | Folder/Code | Content |
 | ------------- | ------------- |
-| data | Contains the data and the ipynb file used for data cleaning and filtering |
-| scripts | Contains the package scripts |
-| src | Contains the js files to genrate  |
+| css | Contains files controling the style of the visualization. |
+| js | Contains js file to create the bar chart race. |
+| data | Contains files to generate wanted dataset format to visualize. |
