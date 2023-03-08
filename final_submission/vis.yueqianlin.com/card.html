@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Css Div Image Hover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            font-family: 'Roboto';
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            /* width: 300px;
+            height: 300px;
+            margin: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            background-color: #a79c93; */
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            background-color: #a79c93;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+        }
+
+        .image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s;
+            object-fit: cover;
+        }
+
+        .box:hover .image img {
+            transform: scale(1.2);
+            filter: blur(1px);
+        }
+
+        .text {
+            position: absolute;
+            bottom: -180px;
+            /* width: 320px; */
+            height: 270px;
+            transition: 0.5s;
+            /* margin-left: -5px; */
+            background-color: #a79c93;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .box:hover .text {
+            bottom: 0px;
+        }
+
+        a {
+            /* padding: 10px; */
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a p{
+            font-size: 16px;
+            font-weight: 400;
+            text-align: justify;
+            color: #fff;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a class="box" href="network.html" target="_top">
+          <div class="image">
+            <img src="images/net1.png" alt="network 1">
+          </div>
+          <div class="text">
+            <h2 class="title">Network</h2>
+            <br>
+            <p>The co-occurrence network showing the collaboration among different authors.</p>
+          </div>
+        </a>
+        <a class="box" href="wordCloud.html" target="_top">
+            <div class="image">
+              <img src="images/wordCloud.png" alt="word cloud 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Word Cloud</h2>
+              <br>
+              <p>The word cloud showing the occurance of words in abstract part of papers.</p>
+            </div>
+          </a>
+          <a class="box" href="./chord.html" target="_top">
+            <div class="image">
+              <img src="images/chord.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Chord Diagram</h2>
+              <br>
+              <p>The chord diagram showing the interdisciplinary correlations of different fields and the changes of correlations from 2020 to now.</p>
+            </div>
+          </a><a class="box" href="./heatmap.html" target="_top">
+            <div class="image">
+              <img src="images/heatmap.png" alt="network 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Heatmap</h2>
+              <br>
+              <p>The calendar heatmap showing the popular days for publishing papers in the past four years.</p>
+            </div>
+          </a>
+          <a class="box" href="quadrantChart.html" target="_top">
+            <div class="image">
+              <img src="images/quadrantChart.png" alt="quadrant chart 1">
+            </div>
+            <div class="text">
+              <h2 class="title">Quadrant Chart</h2>
+              <br>
+              <p>The quadrant chart showing the relationship between publication numbers and citation numbers of authors.</p>
+            </div>
+          </a>
+      </div>
+      
+    </div>
+</body>
+
+</html>

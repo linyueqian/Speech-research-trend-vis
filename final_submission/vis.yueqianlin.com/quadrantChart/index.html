@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' github.com"> -->
+  <!-- <meta http-equiv="Content-Security-Policy" -->
+    <!-- content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script type="text/javascript" src="scripts/raphael.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="src/matrix.js"></script>
+  <script type="text/javascript" src="src/spatialTable.js"></script>
+  <script type="text/javascript" src="src/linkedList.js"></script>
+  <script type="text/javascript" src="src/quadData.js"></script>
+  <script type="text/javascript" src="src/quadAnimation.js"></script>
+  <script type="text/javascript" src="src/quadCamera.js"></script>
+  <script type="text/javascript" src="src/quadBackground.js"></script>
+  <script type="text/javascript" src="src/quadDataPoint.js"></script>
+  <script type="text/javascript" src="src/quadHood.js"></script>
+  <script type="text/javascript" src="src/quadAxes.js"></script>
+  <script type="text/javascript" src="src/quadView.js"></script>
+  <script type="text/javascript" src="src/quadChart.js"></script>
+  <script type="text/javascript" src="src/quadStats.js"></script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript">
+    var bsData = function (i, minX, maxX, minY, maxY) {
+      var data = [];
+      for (; i--;) {
+        data.push({
+          Serial: 'A' + i,
+          Notes: 'Notes for A' + i + 'abcde fghi zklm nop',
+          X: Math.random() * (maxX - minX) + minX,
+          Y: Math.random() * (maxY - minY) + minY,
+          Neighborhood: -1
+        });
+      }
+      return data;
+    }
+
+    var BsChartData = bsData(1, -100, 100, -100, 100);
+
+    function QuadCtrl($scope) {
+      $scope.DataSet = BsChartData;
+      $scope.Clicked = function () {
+        BsChartData.push(Math.random());
+      }
+      $scope.$watch('DataSet', function () {
+      });
+    }
+  </script>
+  <style>
+    input,
+    label {
+      float: left;
+    }
+
+    .link {
+      text-decoration: underline;
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <script src="js/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
+  <script src="js/main.js" type="text/javascript" language="javascript"></script>
+  <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+
+</head>
+
+<body>
+  <div id="mainpanel" style="margin-top: 50px;">
+    <div class="col">
+      <div id="title"> <h2 style="font-weight: bold; font-size: 16px; color: brown;">Quadrant Chart for publication nubmer and ciation number of 4500 authors</h2></div>
+      <div id="titletext" style="text-align: justify; margin-top: 6px;">This is an interactive quadrant chart that shows the relationship
+        between publication number and citation number of 1st author for 4500 papers collected. Click the dots to see
+        detailed
+        data. The visualization is built based on the <a href="https://github.com/OSTUSA/ScatterPlot" target="_blank"
+          style="color: #a52a2a;">ScatterPlot</a> library.</div>
+    </div>
+  </div>
+</body>
+
+<div class="chart-container">
+  <div id="quadChart">
+
+    <script type="text/javascript">
+      var chartKey = [
+        {
+          title: 'low publication \n low citation',
+          color: '#98817B'
+        },
+        {
+          title: 'high publication \n low citation',
+          color: '#000000'
+        },
+        {
+          title: 'high publication \n high citation',
+          color: '#81171b'
+        },
+        {
+          title: 'low publication \n high citation',
+          color: '#5D6D7E'
+        }
+      ];
+
+      var chart = QuadChart('quadChart', {
+        axes: {
+          colors: {
+            tick: '#e2e2e2',
+            text: '#e2e2e2'
+          },
+          x: {
+            title: '1st Author Paper Count(log)',
+            tickInterval: 9
+          },
+          y: {
+            title: '1st Author Citation Count(-log)',
+            tickInterval: 9
+          }
+        },
+        quadrants: {
+          colors: {
+            background: [
+              '#fdfaf2',
+              '#fdfaf2',
+              '#fdfaf2',
+              '#fdfaf2'
+            ],
+            text: [
+              '#81171b',
+              '#5D6D7E',
+              '#000000',
+              '#98817B'
+            ],
+            dataFill: [
+              '#5D6D7E',
+              '#81171b',
+              '#000000',
+              '#98817B'
+            ]
+          },
+          title: [
+            '',
+            '',
+            '',
+            ''
+          ]
+        },
+        key: chartKey,
+        hoodRadius: 5
+      });
+
+      __view();
+    </script>
+  </div>
+</div>
+
+</html>

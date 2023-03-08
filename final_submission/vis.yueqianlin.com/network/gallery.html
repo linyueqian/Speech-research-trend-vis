@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Influential Authors Co-author Network </title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-weight: 300;
+			font-size: 1.5em;
+			background-color: #f5f5f0;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			gap: 10px;
+			height: 700px;
+		}
+
+		.grid-item {
+			border: 3px solid #ccc;
+			border-radius: 10px;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.grid-item a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 300px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.grid-item a img {
+			object-fit: contain;
+			/* set the object-fit property to cover */
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.grid-item h2 {
+			margin-top: 0;
+		}
+
+		.title {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.title h1 {
+			margin-top: -20px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="title">
+		<h1>Influential Authors Co-author Network</h1>
+	</div>
+	<div class="grid">
+		<div class="grid-item">
+			<h2>Jinyu Li</h2>
+			<a href="authors/Jinyu_Li.html">
+				<img src="authors/Jinyu_Li.png" alt="Jinyu Li">
+			</a>
+		</div>
+		<div class="grid-item">
+			<h2>Ming Li</h2>
+			<a href="authors/Ming_Li.html">
+				<img src="authors/Ming_Li.png" alt="Ming Li">
+			</a>
+		</div>
+		<div class="grid-item">
+			<h2>Shinji Watanabe</h2>
+			<a href="authors/Shinji_Watanabe.html">
+				<img src="authors/Shinji_Watanabe.png" alt="Shinji Watanabe">
+			</a>
+		</div>
+		<div class="grid-item">
+			<h2>Tara N. Sainath</h2>
+			<a href="authors/Tara_N_Sainath.html">
+				<img src="authors/Tara_N_Sainath.png" alt="Tara N. Sainath">
+			</a>
+		</div>
+		<div class="grid-item">
+			<h2>Yu Zhang</h2>
+			<a href="authors/Yu_Zhang.html">
+				<img src="authors/Yu_Zhang.png" alt="Yu Zhang">
+			</a>
+		</div>
+		<div class="grid-item">
+			<h2>Zhuo Chen</h2>
+			<a href="authors/Zhuo_Chen.html">
+				<img src="authors/Zhuo_Chen.png" alt="Zhuo Chen">
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
