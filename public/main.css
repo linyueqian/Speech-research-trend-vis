@@ -263,3 +263,10 @@ iframe {
     width: 100vw;
     height: 93vh; /* Set the height of the iframe to the height of the viewport */
 }
+
+.equal-contrib {
+    font-weight: bold;
+    color: #fefefe;
+    margin-right: 5px;
+  }
+  
