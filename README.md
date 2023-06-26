@@ -1,7 +1,7 @@
 # Speech-research-trend-vis
  
-### This is a final project repo for the course STATS401 instructed by Prof. Xin Tong.
-### Authors: Xingyu Shen, Yueqian Lin, Zhixian Zhang
+### [Under Review] We are currently submitting this work to ChinaVis 2023.
+### Authors: Xingyu Shen, Yueqian Lin, Zhixian Zhang, Xin Tong
 
 ### References:
 
